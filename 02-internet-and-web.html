@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CSC13008-23KTPM1-01-Internet-and-Web</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({
+				google_ad_client: "ca-pub-1460132164768330",
+				enable_page_level_ads: true
+			});
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Web Application Development</h1>
+					<h2>CSC13008-23KTPM1</h2>
+					<h3>Note 02 - Internet and Web</h3>
+					<p><small>Lecturer: <a href="mailto:dnkha@fit.hcmus.edu.vn">Đỗ Nguyên Kha</a></small></p>
+					<p><small>Semester 1/2025-2026 @ FIT-HCMUS</small></p>
+					<p><small><a href="?print-pdf">[Print]</a></small></p>
+				</section>
+				<section>
+					<h3>Content</h3>
+					<ol>
+						<li>Internet</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Internet</h3>
+					<ul>
+						<li>The Internet is the global system of interconnected computer networks that uses the Internet protocol suite
+							(TCP/IP) to communicate between networks and devices</li>
+						<li>It is a network of networks that comprises private, public, academic, business, and government networks of local
+							to global scope, linked by electronic, wireless, and optical networking technologies</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Internet</h3>
+					<ul>
+						<li>The Internet carries a vast range of information services and resources, such as the interlinked hypertext
+							documents and applications of the World Wide Web (WWW), electronic mail, internet telephony, streaming media and
+							file sharing</li>
+						<li>Read more: <a href="https://en.wikipedia.org/wiki/Internet">Internet</a></li>
+					</ul>
+				</section>
+				<section >
+					<h3>Internet</h3>
+					<img src="img/internet.png" width="50%">
+				</section>
+				<section>
+					<h3>Web</h3>
+					<ul>
+						<li>The World Wide Web (also known as WWW, W3, or simply the Web) is an information system that enables content sharing
+							over the Internet through user-friendly. It allows
+							documents and other web resources to be accessed over the Internet according to specific rules of the Hypertext
+							Transfer
+							Protocol (HTTP).</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Web</h3>
+					<p><img src="https://www.w3.org/People/Frystyk/thesis/WWW.gif" width="50%">
+						<a href="https://www.w3.org/People/Frystyk/thesis/WWW.html">https://www.w3.org/People/Frystyk/thesis/WWW.html</a>
+					</p>
+				</section>
+				<section>
+					<h3>Web vs Internet</h3>
+					<p>The concepts of the Internet and the Web are often confused with each other. However, the Web is only a part of the
+					Internet; there are many other components of the Internet such as Email, VoIP (Voice-over-Internet Protocol), FTP (File
+					Transfer Protocol), Streaming media (transmission of audio and video), and more...</p>
+				</section>
+				<section>
+					<h3>HTTP</h3>
+					<p><strong>H</strong>yper<strong>t</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol is the foundational communication protocol used on the World
+						Wide Web. It defines how
+						messages are formatted and transmitted between web browsers (clients) and web servers, and how web servers respond
+						to
+						requests.</p>
+				</section>
+				<section>
+					<h3>HTTPS</h3>
+					<p><strong>H</strong>yper<strong>t</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol <strong>S</strong>ecure is the secure version of HTTP. It uses encryption
+						protocols such as TLS
+						(Transport Layer Security) or SSL (Secure Sockets Layer) to secure data transmitted between a web browser and a web
+						server</p>
+				</section>
+				<section>
+					<h3>HTML</h3>
+					<p><strong>H</strong>yper<strong>t</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage is the standard markup language used to create and structure web pages and web applications.
+					It defines the elements and structure of content on the web, such as headings, paragraphs, links, images, and
+					multimedia.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+										<strong>Bold</strong>
+									</code></pre>
+					<p>will render</p>
+					<p><strong>Bold</strong></p>
+				</section>
+				<section>
+					<h3>HTML</h3>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+										<ol>
+											<li>Section 1</li>
+											<li>Section 2</li>
+											<li>Section 3</li>
+										</ol>
+									</code></pre>
+					<p>will render</p>
+					<p>
+					<ol>
+						<li>Section 1</li>
+						<li>Section 2</li>
+						<li>Section 3</li>
+					</ol>
+					</p>
+				</section>
+				<section>
+					<h3>HTML</h3>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+										<table>
+											<thead>
+												<tr>
+													<th>Column 1</th>
+													<th>Column 2</th>
+													<th>Column 4</th>
+													<th>Column 4</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Row 1</td>
+													<td>A</td>
+													<td>B</td>
+													<td>C</td>
+												</tr>
+												<tr>
+													<td>Row 2</td>
+													<td>A</td>
+													<td>B</td>
+													<td>C</td>
+												</tr>
+												<tr>
+													<td>Row 3</td>
+													<td>A</td>
+													<td>B</td>
+													<td>C</td>
+												</tr>
+											</tbody>
+										</table>
+									</code></pre>
+				</section>
+				<section>
+					<h3>HTML</h3>
+					<p>will render</p>
+					<p>
+						<table>
+							<thead>
+								<tr>
+									<th>Column 1</th>
+									<th>Column 2</th>
+									<th>Column 4</th>
+									<th>Column 4</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Row 1</td>
+									<td>A</td>
+									<td>B</td>
+									<td>C</td>
+								</tr>
+								<tr>
+									<td>Row 2</td>
+									<td>A</td>
+									<td>B</td>
+									<td>C</td>
+								</tr>
+								<tr>
+									<td>Row 3</td>
+									<td>A</td>
+									<td>B</td>
+									<td>C</td>
+								</tr>
+							</tbody>
+						</table>
+					</p>
+				</section>
+				<section>
+					<h3>Web Browser</h3>
+					<p>A web browser is a software application used to access and display content on the World Wide Web. It retrieves web pages
+					from web servers and renders them for users to interact with. Common web browsers are: Chrome, Firefox,
+						Safari, Edge, Opera...
+						<img src="img/browsers.png" style="width: 60%;">
+						<small>Source: <a
+								href="http://mediatemple.net/blog/tips/browser-statistics-matter/">http://mediatemple.net/blog/tips/browser-statistics-matter/</a></small>
+					</p>
+				</section>
+				<section>
+					<h3>URL</h3>
+					<p>
+						<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator is the address used to identify and locate resources on the Internet, such as web pages,
+						images, videos, and files.
+					<pre><code class="nohighlight" style="word-wrap: break-word;" data-trim>
+											 scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]
+										</code></pre>
+					example
+					<pre><code class="nohighlight" style="word-wrap: break-word;" data-trim>
+											 https://www.google.com/flights/
+										</code></pre>
+					</p>
+				</section>
+				<section>
+					<h3>Hyperlink</h3>
+					<p>
+						A hyperlink, often simply called a link, is a reference in a hypertext document that users can click to navigate to
+						another document or resource. It forms the fundamental building block of web navigation.
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+											<a href="https://www.google.com/flights/">Google Flights</a>
+										</code></pre>
+					will render<br>
+					<a href="https://www.google.com/flights/">Google Flights</a>
+					</p>
+				</section>
+				<section>
+					<h3>CSS</h3>
+					<p>
+						<strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets is a stylesheet language used to describe the presentation and formatting of a document
+						written in HTML
+					<pre><code style="word-wrap: break-word;" data-trim>
+											#mark {
+												/* Red */
+												color: #ff0000;
+												font-weight: bold;
+												font-family: 'Arial';
+											}
+										</code></pre>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+											<p id="mark">Mark this part</p>
+										</code></pre>
+					sẽ hiển thị
+					</p>
+					<style>
+						#mark {
+							/* Red */
+							color: #ff0000;
+							font-weight: bold;
+							font-family: 'Arial';
+						}
+					</style>
+					<p id="mark">Mark this part</p>
+				</section>
+				<section>
+					<h3>CSS</h3>
+					<p>
+						CSS can be put in style tag
+					<pre><code style="word-wrap: break-word;" data-trim>
+											<style>
+												#mark {
+													/* Màu đỏ */
+													color: #ff0000;
+												}
+											</style>
+										</code></pre>
+					... or in .css file
+					<pre><code style="word-wrap: break-word;" data-trim>
+											 <link rel="stylesheet" href="style.css">
+										 </code></pre>
+					</p>
+				</section>
+				<section>
+					<h3>CSS</h3>
+					<p>
+						... or inline HTML tag
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+											<p style="color:#ff0000">Đánh dấu chỗ này</p>
+										</code></pre>
+					</p>
+				</section>
+				<section>
+					<h3>JavaScript</h3>
+					<p>
+						JavaScript is a programming language commonly used in web browsers to create interactive and dynamic content on web
+						pages.. Example:
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+											<button onclick="alert('You clicked the button');">Click here</button>
+										</code></pre>
+					hiển thị<br>
+					<button onclick="alert('You clicked the button');">Click here</button>
+					</p>
+				</section>
+				<section>
+					<h3>JavaScript</h3>
+					<p>
+						Similar to CSS, JavaScript can be put inline HTML tag
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+											<button onclick="alert('You clicked the button');">Click here</button>
+										</code></pre>
+					script tag
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+											 &#x3C;script&#x3E;alert(&#x27;Hello world!&#x27;);&#x3C;/script&#x3E;
+										</code></pre>
+					or .js file
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+											 &#x3C;script src=&#x22;js/app.js&#x22;&#x3E;&#x3C;/script&#x3E;
+										</code></pre>
+					</p>
+				</section>
+				<section>
+					<h3>Dynamic Web</h3>
+					<p>
+						A dynamic web page is a web page whose content is generated in real-time, often customized for each user, rather than
+						being fixed (static). Dynamic web pages are fundamental to modern websites and web applications, providing flexibility and interactivity.
+					</p>
+				</section>
+				<section>
+					<h3>Dynamic Web</h3>
+						Dynamic web is usually built using popular programming languages as well as popular web frameworks:
+					<ul>
+						<li><strong>C#, VB.net</strong>: ASP.net (Core)...</li>
+						<li><strong>PHP</strong>: Laravel, Zend, Yii, Slim...</li>
+						<li><strong>Java</strong>: Spring, Play...</li>
+						<li><strong>Ruby</strong>: Rails...</li>
+						<li><strong>Python</strong>: Django...</li>
+						<li><strong>JavaScript</strong>: Express, Connect, Restify...</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Web Generations</h3>
+					<ul>
+						<li><strong>Web 1.0:</strong> The static web with read-only pages, mostly informational and no user interaction (early 1990s to early 2000s).</li>
+						<li><strong>Web 2.0:</strong> The social and interactive web with user-generated content, social media, and dynamic experiences (mid-2000s to 2010s).</li>
+						<li><strong>Web 3.0:</strong> The semantic and decentralized web, focusing on AI, personalization, linked data, and blockchain (2010s to present).</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Web Server</h3>
+					<ul>
+						<li>Regarding hardware: It is a computer that hosts a website with an IP address on the Internet, accessible from anywhere in the world.
+						</li>
+						<li>Regarding software: It is a program running on a computer at port 80 (HTTP), port 443 (HTTPS), or other ports to provide information (web
+						pages).</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Web Server</h3>
+					<p>
+						A simple web server contains HTML files (static web) or executes scripts/source code to generate HTML (dynamic web).
+						Popular web servers include IIS, Apache, nginx, Tomcat...
+					</p>
+				</section>
+				<section>
+					<h3>Individual Assignment - IA01</h3>
+					<ul>
+						<li>Survey free hosting services that support Node.js</li>
+						<li>Register an account</li>
+						<li>Fill in the host information in the report</li>
+						<li>Scoring: 3.5 points for each successfully registered host</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
