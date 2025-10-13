@@ -39,11 +39,10 @@
 						<li>Selector</li>
 						<li>Typography</li>
 						<li>Box Model</li>
-						<li>Layout</li>
-						<li>Media Query</li>
-						<li>Resposive Web Design</li>
-						<li>CSS Framework</li>
 						<li>Tailwind</li>
+						<li>Resposive Web Design</li>
+						<li>Media Query</li>
+						<li>Layout</li>
 					</ol>
 				</section>
 				<section>
@@ -777,6 +776,136 @@
 						}
 					</code></pre>
 					<p>This <span style="display: none;">text</span> is removed!</p>
+				</section>
+				<section>
+					<h3>CSS: Position</h3>
+					<p>By default, all HTML elements are positioned statically. Static positioning means elements are placed according to the
+					normal flow of the document.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.content {
+							background-color: lightblue;
+							padding: 20px;
+						}
+					</code></pre>
+					<div style="background-color: lightblue; padding: 20px;">Static positioned</div>
+				</section>
+				<section>
+					<h3>CSS: Position</h3>
+					<p>Relative positioning allows us to adjust an element’s position relative to its normal position without affecting other elements.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.content-relative {
+							position: relative;
+							top: -30;
+							left: 50;
+							background-color: lightgreen;
+							padding: 20px;
+						}
+					</code></pre>
+					<div style="background-color: lightblue; padding: 20px;">Static positioned</div>
+					<div style="position: relative; top: -30; left: 50; background-color: lightgreen; padding: 20px;">Relative positioned</div>
+				</section>
+				<section>
+					<h3>CSS: Position</h3>
+					<p>Absolute positioning removes an element from the normal flow and positions it relative to the closest positioned
+					ancestor.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.content-absolute {
+							position: absolute;
+							top: 0;
+							right: 0;
+							padding: 20px;
+							background-color: coral;
+						}
+					</code></pre>
+					<div style="background-color: lightblue; padding: 20px;">Static positioned</div>
+					<div style="position: relative; top: -30; left: 50; background-color: lightgreen; padding: 20px;">
+						Relative positioned
+						<div style="position: absolute; top: 0; right: 0; padding: 20px; background-color: coral;">
+							Absolutely positioned.
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>CSS: Position</h3>
+					<p>Fixed positioning attaches an element to the <strong>viewport</strong>, so it remains in the same spot during scrolling.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.content-fixed {
+							position: fixed;
+							bottom: 0;
+							right: 0;
+							background-color: yellow;
+							padding: 20px;
+						}
+					</code></pre>
+					<div style="position: fixed; bottom: 0; right: 0; background-color: yellow; padding: 20px;">This div is fixed to the
+						bottom-right corner.</div>
+				</section>
+				<section>
+					<h3>CSS: Z index</h3>
+					<p>The <code>z-index</code> property controls the stacking order of positioned elements along the <strong>z-axis</strong> (depth).</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						#layer-1 {
+						  position: relative; background-color: lightcoral; padding: 20px; height: 40px;
+							z-index: 1;
+						}
+						
+						#layer-2 {
+							position: relative; background-color: lightseagreen; margin-top: -30px; left: 20px; padding: 20px; 
+							z-index: 2;
+						}
+					</code></pre>
+					<div style="position: relative; background-color: lightcoral; padding: 20px; height: 40px; z-index: 1;">
+						Layer 1
+					</div>
+					<div style="position: relative; background-color: lightseagreen; margin-top: -30px; left: 20px; padding: 20px; z-index: 2;">
+						Layer 2
+					</div>
+				</section>
+				<section>
+					<h3>Tailwind CSS</h3>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+					</code></pre>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<h1 class="text-3xl font-bold underline text-clifford">
+						Hello world!
+						</h1>
+					</code></pre>
+				</section>
+				<section>
+					<h3>Responsive Web Design</h3>
+					<p>Media queries allow us to apply CSS styles based on conditions such as screen size, resolution, orientation, and more. By using media queries, we can tailor our designs to different devices, enhancing user experience.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						@media media-type and (media-condition) {
+							/* CSS rules */
+						}
+					</code></pre>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						/* Styles for screens up to 600px wide */
+						@media only screen and (max-width: 600px) {
+							body {
+								background-color: lightblue;
+							}
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Mobile-first</h3>
+					<p>The mobile-first approach involves designing for smaller screens first and then enhancing the layout for larger screens using media queries.</p>
+
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						@media media-type and (media-condition) {
+							/* CSS rules */
+						}
+					</code></pre>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						/* Styles for screens up to 600px wide */
+						@media only screen and (max-width: 600px) {
+							body {
+								background-color: lightblue;
+							}
+						}
+					</code></pre>
 				</section>
 				<section>
 					<h3>Group Assignment - GA01</h3>
