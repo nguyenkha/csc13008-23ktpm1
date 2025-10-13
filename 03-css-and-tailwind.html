@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CSC13008-23KTPM1-03-CSS-and-Tailwind</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({
+				google_ad_client: "ca-pub-1460132164768330",
+				enable_page_level_ads: true
+			});
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Web Application Development</h1>
+					<h2>CSC13008-23KTPM1</h2>
+					<h3>Note 03 - CSS and Tailwind</h3>
+					<p><small>Lecturer: <a href="mailto:dnkha@fit.hcmus.edu.vn">Đỗ Nguyên Kha</a></small></p>
+					<p><small>Semester 1/2025-2026 @ FIT-HCMUS</small></p>
+					<p><small><a href="?print-pdf">[Print]</a></small></p>
+				</section>
+				<section>
+					<h3>Content</h3>
+					<ol>
+						<li>HTML element</li>
+						<li>Selector</li>
+						<li>Typography</li>
+						<li>Box Model</li>
+						<li>Layout</li>
+						<li>Media Query</li>
+						<li>Resposive Web Design</li>
+						<li>CSS Framework</li>
+						<li>Tailwind</li>
+					</ol>
+				</section>
+				<section>
+					<h3>HTML Element: Text</h3>
+					<p>Heading: h1, h2, h3...</p>
+					<p><code>h1</code> is the most important heading, usually the main title. <br>
+						<code>h2</code> to <code>h6</code> represent headings with a decreasing level of importance.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+														<h1>Heading 1</h1>
+													</code></pre>
+					<p><h1>Heading 1</h1></p>
+				</section>
+				<section>
+					<h3>HTML Element: Text</h3>
+					<p>Paragraphs <code>p</code> tag enclose blocks of text, representing standard paragraphs.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+																		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+																		aliqua.</p>
+																		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+																	</code></pre>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+						aliqua.</p>
+					<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</section>
+				<section>
+					<h3>HTML Element: Text</h3>
+					<p>The <code>em</code> tag italicizes text, indicating emphasis.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+																		<em>Italic</em>
+																	</code></pre>
+					<p>
+						<em>Italic</em>
+					</p>
+				</section>
+				<section>
+					<h3>HTML Element: Text</h3>
+					<p>The <code>strong</code> tag is used to make text bold, indicating strong importance.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+																						<strong>Bold</strong>
+																					</code></pre>
+					<p>
+						<strong>Bold</strong>
+					</p>
+				</section>
+				<section>
+					<h3>HTML Element: Text</h3>
+					<p>The <code>br</code> tag inserts a line break without starting a new paragraph. It's an empty tag, meaning it doesn't need a closing
+					tag.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+																						<p>Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna
+																						aliqua.</p>
+																					</code></pre>
+					<p>Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore
+						magna
+						aliqua.</p>
+				</section>
+				<section>
+					<h3>HTML Element: Text</h3>
+					<p>The <code>span</code> tag is an inline container used to mark up a part of a text, or a part of a document. It doesn’t inherently
+						represent anything, but it can be useful when we want to manipulate a specific section of text using CSS or
+						JavaScript.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+																										<p>Lorem ipsum dolor sit <span style="color:red">amet</span>, consectetur adipiscing elit</p>
+																									</code></pre>
+					<p>Lorem ipsum dolor sit <span style="color:red">amet</span>, consectetur adipiscing elit</p>
+				</section>
+				<section>
+					<h3>HTML Element: Audio</h3>
+					<p>The <code>audio</code> tag embeds sound into our web page.
+						<ul>
+							<li><code>src</code>: Specifies the path to the audio file.</li>
+							<li><code>controls</code>: Adds playback controls (play, pause, volume).</li>
+						</ul>
+					</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<audio src="https://upload.wikimedia.org/wikipedia/commons/5/59/Kevin_MacLeod_-_Canon_in_D_Major.ogg" controls>
+							Your browser does not support the audio element.
+						</audio>
+					</code></pre>
+					<p><audio src="https://upload.wikimedia.org/wikipedia/commons/5/59/Kevin_MacLeod_-_Canon_in_D_Major.ogg" controls>
+						Your browser does not support the audio element.
+					</audio></p>
+				</section>
+				<section>
+					<h3>HTML Element: Video</h3>
+					<p>The <code>video</code> tag embeds video(s) into our web page.
+					<ul>
+						<li><code>src</code>: Specifies the path to the video file.</li>
+						<li><code>width</code>, <code>height</code>: Define the dimensions of the video player.</li>
+					</ul>
+					</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<video
+							src="https://media.istockphoto.com/id/841475444/video/data-background-loopable.mp4?b=1&s=mp4-640x640-is&k=20&c=_Q4qJ3kSrDgwAkphZHhgSvI31BfINifQDgCgcpDemSE="
+							controls poster="img/internet.png" width="640" height="360">
+							Your browser does not support the video element.
+						</video>
+					</code></pre>
+				</section>
+				<section>
+					<h3>HTML Element: Video</h3>
+					<p>
+						<video
+							src="https://media.istockphoto.com/id/841475444/video/data-background-loopable.mp4?b=1&s=mp4-640x640-is&k=20&c=_Q4qJ3kSrDgwAkphZHhgSvI31BfINifQDgCgcpDemSE="
+							controls poster="img/internet.png" width="640" height="360">
+							Your browser does not support the video element.
+						</video>
+					</p>
+				</section>
+				<section>
+					<h3>HTML Element: Iframe</h3>
+					<p>To embed videos from platforms like YouTube, we can use the <code>iframe</code> tag. It embeds another HTML document within the
+						current page.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<iframe width="640" height="360" src="https://www.youtube.com/embed/yoZy2E17-50" allowfullscreen>
+						</iframe>
+					</code></pre>
+				</section>
+				<section>
+					<h3>HTML Element: Iframe</h3>
+					<p><iframe width="640" height="360" src="https://www.youtube.com/embed/yoZy2E17-50" allowfullscreen>
+					</iframe></p>
+				</section>
+				<section>
+					<h3>HTML Element: Semantic</h3>
+					<p><code>header</code>, <code>main</code>, <code>footer</code>, <code>nav</code>, <code>section</code>, <code>article</code>, <code>aside</code></p>
+					<ul>
+						<li>As web development advances, the emphasis on writing clean, meaningful HTML code has grown significantly.</li>
+						<li>Semantic
+							elements in HTML5 allow us to structure our web content logically, making it more understandable for browsers and
+							users.</li>
+						<li>By using these elements, we can enhance code readability, improve accessibility, and boost our site’s SEO
+							performance.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>HTML Element: Accessibility</h3>
+					<p>The <code>alt</code> attribute in the <code>img</code> tag provides alternative text descriptions for images. This text is crucial for users who
+					rely on screen readers or have images disabled in their browsers.
+					</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<img src="img/internet.png" width="20%" alt="An image demo for Internet">
+					</code></pre>
+					<p><img src="img/internet.png" width="20%" alt="An image demo for Internet"></p>
+				</section>
+				<section>
+					<h3>HTML Element: Class</h3>
+					<ul>
+						<li>The <code>class</code> attribute is used to assign one or more class names to an HTML element.</li>
+						<li>Classes are helpful for applying CSS
+						styles or for JavaScript to identify and manipulate elements on the page.</li>
+						<li>A class name is reusable, meaning multiple
+						elements can share the same class.</li>
+					</ul>  
+					</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<tag class="classname">Content</tag>
+						<div class="container">This is a container</div>
+						<p class="text-primary">This is primary text</p>
+					</code></pre>
+				</section>
+				<section>
+					<h3>HTML Element: ID</h3>
+					<ul>
+						<li>The <code>id</code> attribute assigns a unique identifier to an HTML element</li>
+						<li>Unlike the <code>class</code> attribute, an <code>id</code> should be unique within the document. It is primarily used for targeting specific
+						elements.</li>
+					</ul>  
+					</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<tag id="uniqueID">Content</tag>
+						<div id="main-header">This is the main header</div>
+						<p id="intro-text">Welcome to our website</p>
+					</code></pre>
+				</section>
+				<section>
+					<h3>HTML Element: Attribute</h3>
+					<p>Attributes are extra pieces of information added to an HTML element that define its behavior or provide metadata. They
+					appear as name-value pairs within the opening tag of an element. Consider the following syntax:
+					</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<tag attribute-name="value">Content</tag>
+					</code></pre>
+					<p>The following are some commonly used attributes in CSS and JavaScript: <code>class</code>, <code>id</code>,
+						<code>style</code>...</p>
+				</section>
+				<section>
+					<h3>Build a blog page</h3>
+					<p><small>Your task is to create a static HTML5 web page that displays a blog post that adheres to the following requirements:</small></p>
+					<ul>
+						<li>The page must include a title and navigation links.</li>
+						<li>The page provides supplementary content, such as an author bio or related posts.</li>
+						<li>The page must contain footer information like copyright notices.</li>
+						<li>The blog post should contain at least two logical sections, each with a heading.</li>
+						<li>The blog post should include at least one image relevant to the topic.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Build a blog page</h3>
+					<p><small>Utilize the following HTML5 semantic elements in specific parts of your web page:</small></p>
+					<ul>
+						<li><code>header</code>: <code>nav</code> for navigation links and <code>h1</code> for title</li>
+						<li><code>main</code>: wrap the main content</li>
+						<li><code>article</code>: <code>h2</code> for for the title of the article.</li>
+						<li><code>section</code>: Divide the blog post content into logical sections, <code>h3</code> for heading</li>
+						<li><code>aside</code>: Supplementary information, such as an author bio</li>
+						<li><code>footer</code>: Contact information or copyright.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS: Syntax</h3>
+					<p>CSS comprises rules that tell the browser how to display elements on the page. Each rule consists of a selector and a
+					declaration block (<code>{}</code>).
+					</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						selector {
+							property: value;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>CSS: Selectors</h3>
+					<p>
+						Selectors specify which HTML elements the styles should be applied to. Common selectors include element selectors (e.g.,
+						<code>p</code>, <code>h1</code>), class selectors (e.g., <code>.classname</code>), and ID selectors (e.g., <code>#idname</code>).
+					</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						h1 { color: navy; }
+					</code></pre>
+					<p>This rule applies to all <code>h1</code> elements.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.text-primary { font-size: 16px; }
+						#main-header { font-weight: bold; }
+					</code></pre>
+					<p>This rule applies to all <code>.text-primary</code> elements or ID <code>#main-header</code>.</p>
+				</section>
+				<section>
+					<h3>CSS: Properties and Values</h3>
+					<p>
+						Within the declaration block <code>{}</code>, we can define properties and their corresponding values.
+					</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						h1 {
+							color: navy;
+							font-size: 16px;
+						}
+					</code></pre>
+					<p>In the above code, <code>color</code> and <code>font-size</code> are properties while <code>navy</code> and <code>16px</code> are values.</p>
+				</section>
+				<section>
+					<h3>CSS: Comment</h3>
+					<ul>
+						<li>Comments in CSS are non-executing lines of code that the browser ignores when rendering the web page.</li>
+						<li>They serve as notes or explanations within the stylesheet, providing context or reminders about specific sections of code.</li>
+					</ul>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						/* This is a single-line comment in CSS */
+						h1 {
+							color: navy;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>CSS: Grouping multiple selectors</h3>
+					<p>
+						Grouping selectors allows us to apply the same style to multiple selectors, reducing repetition in our CSS.
+					</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						h1, h2, h3 {
+							color: navy;
+						}
+					</code></pre>
+					<p>This rule sets the text color of all <code>h1</code>, <code>h2</code>, and <code>h3</code> elements to navy.</p>
+				</section>
+				<section>
+					<h3>CSS: Descendant selector</h3>
+					<p>
+						Targets elements that are descendants of another element. The example given below sets the list style to square for <code>li</code> elements that are within an unordered list <code>ul</code>.
+					</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						ul li {
+							list-style-type: square;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>CSS: Descendant selector</h3>
+					<p>
+						Selects elements that are direct children of a specified element. The example given below styles only <code>p</code> elements that are direct children of a <code>div</code>.
+					</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						div > p {
+							color: green;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>CSS: Class within element selector</h3>
+					<p>
+						Selects specific target elements with a particular class. It combines the HTML tag name with a class name, ensuring that the styles apply only to elements of that tag type that also have the specified class.
+					</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						p.highlight {
+							font-weight: bold;
+						}
+					</code></pre>
+					<p>The example given below targets all <code>p</code>p elements with the class highlight.</p>
+				</section>
+				<section>
+					<h3>CSS: Multiple classes</h3>
+					<p>
+						Target elements with multiple classes applied simultaneously to ensure styles are applied only when the element matches all specified classes
+					</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<style>
+							.container.highlight {
+								border: 1px solid black;
+							}
+						</style>
+						
+						<div class="container highlight"></div>
+					</code></pre>
+					<p>The example given below applies styles only to elements with both <code>container</code> and <code>highlight</code></p>
+				</section>
+				<section>
+					<h3>CSS: Specificity</h3>
+					<p>
+						<small>Specificity is a measure of how specific a CSS selector is. Rules with higher specificity take precedence over those
+						with lower specificity, regardless of their order in the stylesheet. CSS rules are applied based on specificity first
+						and then precedence.</small>
+					</p>
+					<ol>
+						<li>Inline styles (<code>style="..."</code>).</li>
+						<li>ID selectors (<code>#id</code>).</li>
+						<li>Class selectors, attributes, and pseudo-classes (<code>.class</code>, <code>[attr=value]</code>, <code>:hover</code>).</li>
+						<li>Element selectors and pseudo-elements (<code>h1</code>, <code>p</code>, <code>::before</code>).</li>
+						<li>Universal selector <code>(*)</code>, combinators (<code>+</code>, <code>&gt;</code>, <code>~</code>), and negation pseudo-class (<code>:not()</code>) have no specificity.</li>
+					</ol>
+				</section>
+				<section>
+					<h3>CSS: Typography</h3>
+					<ul>
+						<li>Typography is a fundamental aspect of web design that significantly impacts the user experience.</li>
+						<li>CSS provides a range of properties to style text, allowing us to enhance readability and visual appeal</li>
+					</ul>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						body {
+							font-family: "Helvetica Neue", Arial, sans-serif;
+						}
+					</code></pre>
+					<p>In this example, the browser will use “Helvetica Neue” if it’s available; if not, it will try Arial, and finally any
+					sans-serif font.</p>
+					<p style="font-family: 'Helvetica Neue', Arial, sans-serif;">Sans Serif Font</p>
+				</section>
+				<section>
+					<h3>CSS: Font size</h3>
+					<p>The font-size property sets the size of the text. Common units include pixels (<code>px</code>), ems (<code>em</code>), and percentages (<code>%</code>).</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						p {
+							font-size: 16px;
+						}
+					</code></pre>
+					<p>This sets all <code>p</code> elements to a font size of 16 pixels.</p>
+				</section>
+				<section>
+					<h3>CSS: Font weight</h3>
+					<p>The font-weight property controls the thickness of the characters. We can use keywords like <code>normal</code> or <code>bold</code>, or numerical
+					values from <code>100</code> (thin) to <code>900</code> (heavy).</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						h1 {
+							font-weight: 700;
+						}
+					</code></pre>
+					<p>This makes all <code>h1</code> headings bold.</p>
+				</section>
+				<section>
+					<h3>CSS: Font style</h3>
+					<p>The font-style property specifies whether the text is <code>normal</code>, <code>italic</code>, or <code>oblique</code>.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						blockquote {
+							font-style: italic;
+						}
+					</code></pre>
+					<p>This italicizes text within <code>blockquote</code> elements.</p>
+					<blockquote>Italic</blockquote>
+				</section>
+				<section>
+					<h3>CSS: Text color</h3>
+					<p>The color property changes the color of the text. We can define colors using names, HEX codes, RGB, or HSL values.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						a {
+							color: #007BFF;
+						}
+					</code></pre>
+					<p>This sets hyperlink text to a specific shade of blue.</p>
+				</section>
+				<section>
+					<h3>CSS: Aligning text</h3>
+					<p>The <code>text-align</code> property aligns text horizontally within its container.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.header {
+							text-align: center;
+						}
+					</code></pre>
+					<p>This centers the text in elements with the class <code>header</code>.</p>
+				</section>
+				<section>
+					<h3>CSS: Text decoration</h3>
+					<p>The <code>text-decoration</code> property adds decorative lines to text, such as underlines or strikethroughs.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						nav a {
+							text-decoration: none;
+						}
+					</code></pre>
+					<p>This removes underlines from links within navigation menus.</p>
+				</section>
+				<section>
+					<h3>CSS: Line height</h3>
+					<p>The <code>line-height</code> property sets the vertical spacing between lines of text, improving readability.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						body {
+							line-height: 1.5;
+						}
+					</code></pre>
+					<p>This sets the line height to 1.5 times the font size for the entire body text.</p>
+				</section>
+				<section>
+					<h3>CSS: Font variant</h3>
+					<p>The <code>font-variant</code> property allows us to display text in a small-caps font or other variant forms. </p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						body {
+							line-height: 1.5;
+						}
+					</code></pre>
+					<p>Consider the following
+					example, where we transform the text of <code>h2</code> elements into small capitals.</p>
+				</section>
+				<section>
+					<h3>CSS: Font shorthand</h3>
+					<p>The font shorthand property allows us to specify several font properties in a single declaration.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						font: [font-style] [font-variant] [font-weight] [font-size]/[line-height] [font-family];
+					</code></pre>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						h1 {
+							font: italic small-caps 700 24px/1.6 'Times New Roman', serif;
+						}
+					</code></pre>
+					<h1 style="font: italic small-caps 700 24px/1.6 'Times New Roman', serif;">Heading</h1>
+				</section>
+				<section>
+					<h3>CSS: Opacity</h3>
+					<ul>
+						<li>The opacity property in CSS sets the transparency level of an element and its children.</li>
+						<li>It accepts a value between <code>0</code> (completely transparent) and <code>1</code> (completely opaque).</li>
+					</ul>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.faded-image {
+							opacity: 0.5;
+						}
+					</code></pre>
+					<p><img src="img/internet.png" width="20%" style="opacity: 0.5;"></p>
+				</section>
+				<section>
+					<h3>CSS: Visibility</h3>
+					<p><small>The visibility property in CSS determines whether an element is visible or hidden, but it preserves the space the
+					element occupies in the document flow.</small></p>
+					<ul>
+						<li><code>visible</code>: The default value. The element is visible.</li>
+						<li><code>hidden</code>: The element is invisible (not rendered), but still affects layout.</li>
+					</ul>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.hidden-text {
+							visibility: hidden;
+						}
+					</code></pre>
+					<p>This <span style="visibility: hidden;">text</span> is hidden!</p>
+				</section>
+				<section>
+					<h3>CSS: Foreground color</h3>
+					<p>The <code>color</code> property in CSS sets the foreground color of an element’s text content. It’s one of the most commonly used
+					properties for styling text.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.highlight {
+							color: blue;
+						}
+					</code></pre>
+					<p>This is <span style="color: blue;">blue</span></p>
+				</section>
+				<section>
+					<h3>CSS: Background color</h3>
+					<p>The <code>background-color</code> property sets the background color of an element, filling the area behind the content and padding.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.alert {
+						  background-color: yellow;
+						}
+					</code></pre>
+					<div style="background-color: yellow;">This is an alert message.</div>
+				</section>
+				<section>
+					<h3>CSS: Border</h3>
+					<p>The <code>background-color</code> property sets the background color of an element, filling the area behind the content and padding.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.box {
+							border: 2px solid;
+							border-color: red;
+							padding: 10px;
+						}
+					</code></pre>
+					<div style="border: 2px solid; border-color: red; padding: 10px;">Content inside a box.</div>
+				</section>
+				<section>
+					<h3>CSS: Named color</h3>
+					<p>CSS supports 140 standard color names that can be used directly.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						h1 {
+						  color: DarkSlateGray;
+						}
+					</code></pre>
+					<h1 style="color: DarkSlateGray;">Named Color Content</h1>
+				</section>
+				<section>
+					<h3>CSS: Hexadecimal color</h3>
+					<p>CSS supports 140 standard color names that can be used directly.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						h1 {
+							background-color: #f0f8ff;
+						}
+					</code></pre>
+					<h1 style="background-color: #f0f8ff;">Hexadecimal Color</h1>
+				</section>
+				<section>
+					<h3>CSS: RGB color</h3>
+					<p>CSS supports 140 standard color names that can be used directly.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						h1 {
+							color: rgb(255, 165, 0); /* Orange */
+						}
+					</code></pre>
+					<h1 style="color: rgb(255, 165, 0);">RGB Color</h1>
+				</section>
+				<section>
+					<h3>CSS: RGBA color with opacity</h3>
+					<p>CSS supports 140 standard color names that can be used directly.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						h1 {
+							color: rgb(255, 165, 0); /* Orange */
+							background-color: rgba(0, 0, 0, 0.5);
+						}
+					</code></pre>
+					<h1 style="color: rgb(255, 165, 0); background-color: rgba(0, 0, 0, 0.5);">RGBA Color</h1>
+				</section>
+				<section>
+					<h3>CSS: HSL color</h3>
+					<p>HSL stands for Hue, Saturation, and Lightness. It provides an intuitive way to define colors.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.h1 {
+							color: hsl(0, 0%, 100%); /* White */
+							background-color: hsl(120, 100%, 25%); /* Dark Green */
+						}
+					</code></pre>
+					<h1 style="color: hsl(0, 0%, 100%); background-color: hsl(120, 100%, 25%);">HSL Color</h1>
+				</section>
+				<section>
+					<h3>CSS: HSL color with opacity</h3>
+					<p>HSLA adds an alpha channel to HSL colors.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.h1 {
+							color: hsl(0, 0%, 100%); /* White */
+							background-color: hsla(240, 100%, 50%, 0.7); /* Semi-transparent blue */
+						}
+					</code></pre>
+					<h1 style="color: hsl(0, 0%, 100%); background-color: hsla(240, 100%, 50%, 0.7);">HSLA Color</h1>
+				</section>
+				<section>
+					<h3>CSS: Variables</h3>
+					<p>CSS variables (custom properties) allow us to store values for reuse, making it easier to maintain and update styles.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						:root {
+							--primary-color: #3498db;
+							--text-color: #333;
+						}
+
+						.box {
+							color: var(--text-color);
+							background-color: var(--primary-color);
+							padding: 30px;
+						}
+					</code></pre>
+				</section>
+				<section style="background-image: url(img/internet.png);">
+					<h3>CSS: Background images</h3>
+					<p>The <code>background-image</code> property allows us to set an image as the background of an element.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						section {
+							background-image: url(img/internet.png);
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>CSS: Margin and Padding</h3>
+					<p>In CSS, every element is considered a rectangular box composed of the following four parts:</p>
+					<ul>
+						<li><strong>Content</strong>: The actual substance of the element, such as text or images.</li>
+						<li><strong>Padding</strong>: The space between the content and the border, pushing the content inward.</li>
+						<li><strong>Border</strong>: The line surrounding the padding and content, defining the element’s edge.</li>
+						<li><strong>Margin</strong>: The space outside the border, separating the element from neighboring elements.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS: Margin, Padding and Border</h3>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.box {
+							padding: 30px;
+							margin: 20px 0;
+							border: 5px solid #333;
+							background-color: #ddd;
+						}
+					</code></pre>
+					<div style="padding: 30px; margin: 20px 0; border: 5px solid #333; background-color: #ddd;">
+						This is some content inside the box.
+					</div>
+				</section>
+				<section>
+					<h3>CSS: Box sizing</h3>
+					<p>The <code>box-sizing</code> property defines how the total width and height of an element are calculated.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.box {
+							width: 800px;
+							height: 100px;
+							padding: 30px;
+							margin: 20px 0;
+							border: 5px solid #333;
+							background-color: #ddd;
+							box-sizing: border-box;
+						}
+					</code></pre>
+					<div style="width: 800px; height: 100px; padding: 30px; margin: 20px 0; border: 5px solid #333; background-color: #ddd; box-sizing: border-box;">
+						This is some content inside the box.
+					</div>
+				</section>
+				<section>
+					<h3>CSS: Box sizing</h3>
+					<ul>
+						<li><code>content-box</code> (default): The width and height apply to the content only. Padding and borders are added outside the content’s dimensions, increasing the overall size.</li>
+						<li><code>border-box</code>: The width and height include content, padding, and border. This makes the total size of the element predictable and consistent.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS: Display</h3>
+					<p>Elements with <code>display: block;</code> occupy the full width available and start on a new line. They respect width and height properties and can contain <code>margin</code> and <code>padding</code>.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.block-element {
+							display: block;
+							background-color: #e0e0e0;
+							border: 5px solid #111111;
+							margin: 5px;
+						}
+					</code></pre>
+					<style>
+						.block-element {
+							display: block;
+							background-color: #e0e0e0;
+							border: 5px solid #111111;
+							margin: 5px;
+						}
+					</style>
+					<div>
+						<div class="block-element">This is an block element.</div>
+						<div class="block-element">This is an block element.</div>
+					</div>
+				</section>
+				<section>
+					<h3>CSS: Display</h3>
+					<p>Elements with <code>display: inline;</code> flow along with text content and do not start on a new line. They do not respect width and height properties, but padding and margins can be applied horizontally.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.inline-element {
+							display: inline;
+							background-color: #e0e0e0;
+							border: 5px solid #111111;
+							margin: 5px;
+						}
+					</code></pre>
+					<style>
+						.inline-element {
+							display: inline;
+							background-color: #e0e0e0;
+							border: 5px solid #111111;
+							margin: 5px;
+						}
+					</style>
+					<div>
+						<div class="inline-element">This is an inline element.</div>
+						<div class="inline-element">This is an inline element.</div>
+					</div>
+				</section>
+				<section>
+					<h3>CSS: Display</h3>
+					<p>Elements with display: inline-block; combine features of both block and inline elements. They flow inline with text but respect <code>width</code> and <code>height</code> properties.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.inline-block-element {
+							height: 150px;
+							width: 300px;
+							display: inline-block;
+							background-color: #e0e0e0;
+							border: 5px solid #111111;
+							margin: 5px;
+						}
+					</code></pre>
+					<style>
+						.inline-block-element {
+							height: 150px;
+							width: 300px;
+							display: inline-block;
+							background-color: #e0e0e0;
+							border: 5px solid #111111;
+							margin: 5px;
+						}
+					</style>
+					<div>
+						<div class="inline-block-element">Inline block element.</div>
+						<div class="inline-block-element">Inline block element.</div>
+					</div>
+				</section>
+				<section>
+					<h3>CSS: Display</h3>
+					<p>Setting <code>display: none;</code> completely removes the element from the document flow. It does not occupy any space on the page.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.removed-text {
+							display: none;
+						}
+					</code></pre>
+					<p>This <span style="display: none;">text</span> is removed!</p>
+				</section>
+				<section>
+					<h3>Group Assignment - GA01</h3>
+					<ul>
+						<li>Create a website to introduce group and members</li>
+						<li>Publish static website to a host (github or any cloud services)</li>
+						<li>Submit the source code and public host URL</li>
+						<li>Scoring: 
+							<ul>
+								<li>Information (homepage, detail for each member): 4.0</li>
+								<li>Theme and color: 2.0</li>
+								<li>Responsive layout (header, navigation, footer, sidebar): 2.0</li>
+								<li>Publish on public host: 2.0</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
