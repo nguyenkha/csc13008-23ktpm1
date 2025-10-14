@@ -475,7 +475,7 @@
 					<p>The <code>font-variant</code> property allows us to display text in a small-caps font or other variant forms. </p>
 					<pre><code class="css" style="word-wrap: break-word;" data-trim>
 						body {
-							line-height: 1.5;
+							font-variant: small-caps;
 						}
 					</code></pre>
 					<p>Consider the following
@@ -796,14 +796,14 @@
 					<pre><code class="css" style="word-wrap: break-word;" data-trim>
 						.content-relative {
 							position: relative;
-							top: -30;
-							left: 50;
+							top: -30px;
+							left: 50px;
 							background-color: lightgreen;
 							padding: 20px;
 						}
 					</code></pre>
 					<div style="background-color: lightblue; padding: 20px;">Static positioned</div>
-					<div style="position: relative; top: -30; left: 50; background-color: lightgreen; padding: 20px;">Relative positioned</div>
+					<div style="position: relative; top: -30px; left: 50px; background-color: lightgreen; padding: 20px;">Relative positioned</div>
 				</section>
 				<section>
 					<h3>CSS: Position</h3>
@@ -855,7 +855,7 @@
 							z-index: 2;
 						}
 					</code></pre>
-					<div style="position: relative; background-color: lightcoral; padding: 20px; height: 40px; z-index: 1;">
+					<div style="position: relative; background-color: lightcoral; padding: 20px; z-index: 1;">
 						Layer 1
 					</div>
 					<div style="position: relative; background-color: lightseagreen; margin-top: -30px; left: 20px; padding: 20px; z-index: 2;">
