@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CSC13008-23KTPM1-04-JavaScript-and-DOM</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1460132164768330" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Web Application Development</h1>
+					<h2>CSC13008-23KTPM1</h2>
+					<h3>Note 04 - JavaScript and DOME</h3>
+					<p><small>Lecturer: <a href="mailto:dnkha@fit.hcmus.edu.vn">Đỗ Nguyên Kha</a></small></p>
+					<p><small>Semester 1/2025-2026 @ FIT-HCMUS</small></p>
+					<p><small><a href="?print-pdf">[Print]</a></small></p>
+				</section>
+				<section>
+					<h3>Content</h3>
+					<ol>
+						<li>JavaScript</li>
+						<li>DOM</li>
+					</ol>
+				</section>
+				<section>
+					<h3>JavaScript</h3>
+					<p>JavaScript is a versatile, high-level, and interpreted programming language designed for the web. It allows us to create
+					dynamic, interactive content on web pages, such as animations, form validations, and interactive menus. JavaScript works
+					seamlessly with HTML and CSS, enabling us to build rich user interfaces and enhance the user experience.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						// This is a comment
+						let message = "Hello, JavaScript!"; // Declares a variable
+						console.log(message); // Outputs to the console
+					</code></pre>
+				</section>
+				<section>
+					<h3>JavaScript</h3>
+					<p>JavaScript is a client-side programming language that runs directly in the browser. While it is traditionally associated
+					with the client side, modern technologies like Node.js have also introduced JavaScript as a server-side language. Its
+					ability to manipulate the Document Object Model (DOM) makes it indispensable for modern web development.</p>
+					<ul>
+						<li><strong>Dynamic content:</strong> It can update HTML and CSS without reloading the page.</li>
+						<li><strong>Interactivity:</strong> It supports event handling, animations, and user interaction.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>DOM</h3>
+					<p>The DOM (Document Object Model) is a programming interface that represents the structure of an HTML or XML document as a
+					tree-like hierarchy. Each element, attribute, and piece of text in the document is represented as a node, enabling
+					JavaScript to interact with and manipulate the document programmatically.</p>
+					<p>HTML provides the static structure of a web page, but the DOM acts as its live representation. When a browser loads an
+					HTML document, it parses the content into the DOM, which allows JavaScript to dynamically update the page’s content and
+					structure.</p>
+				</section>
+				<section>
+					<h3>DOM</h3>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/DOM-model.svg">
+				</section>
+				<section>
+					<h3>DOM</h3>
+					<p>Accessing elements in the DOM is a fundamental operation that allows us to manipulate web page content dynamically.
+					Several methods are available for selecting elements.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const header = document.getElementById('main-header');
+						const items = document.getElementsByClassName('list-item');
+						const paragraphs = document.getElementsByTagName('p');
+						const firstItem = document.querySelector('.list-item');
+						const allItems = document.querySelectorAll('.list-item');
+					</code></pre>
+				</section>
+				<section>
+					<h3>DOM</h3>
+					<p>The DOM’s tree structure allows us to navigate between nodes. Here are some common traversal techniques:</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const childElement = document.querySelector('.child');
+						const parentElement = childElement.parentNode;
+					</code></pre>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const parentElement = document.getElementById('parent');
+						const children = parentElement.children;
+					</code></pre>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const current = document.querySelector('.current');
+						const next = current.nextElementSibling;
+					</code></pre>
+				</section>
+				<section>
+					<h3>DOM</h3>
+					<p>We can use the <code>textContent</code> property to update or retrieve the textual content of an element.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const heading = document.querySelector('h1');
+						heading.textContent = 'Welcome to JavaScript!';
+					</code></pre>
+				</section>
+				<section>
+					<h3>DOM</h3>
+					<p>The <code>setAttribute()</code> and <code>getAttribute()</code> methods let you manipulate an element’s attributes.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const link = document.querySelector('a');
+						link.setAttribute('href', 'https://example.com');
+						console.log(link.getAttribute('href'));
+					</code></pre>
+				</section>
+				<section>
+					<h3>DOM</h3>
+					<p>The <strong>style</strong> property allows you to modify inline CSS styles directly on an element.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const button = document.querySelector('button');
+						button.style.backgroundColor = 'blue';
+						button.style.color = 'white';
+					</code></pre>
+				</section>
+				<section>
+					<h3>DOM</h3>
+					<p>Use the <strong>classList</strong> property to manipulate an element’s classes.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const box = document.querySelector('.box');
+						box.classList.add('highlight');
+						box.classList.remove('shadow');
+						box.classList.toggle('active');
+					</code></pre>
+					<p>The <code>classList.contains()</code> method checks if an element has a specific class.</p>
+				</section>
+				<section>
+					<h3>DOM</h3>
+					<p>The <code>innerHTML</code> property retrieves or sets the HTML content inside an element.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const container = document.querySelector('.container');
+						container.innerHTML = '<p>Dynamic HTML content</p>';
+					</code></pre>
+					<p>The <code>textContent</code> property retrieves or sets the text content of an element without affecting HTML.</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
