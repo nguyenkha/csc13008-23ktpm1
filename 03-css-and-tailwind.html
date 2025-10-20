@@ -857,53 +857,7 @@
 					</div>
 				</section>
 				<section>
-					<h3>Tailwind CSS</h3>
-					<pre><code class="html" style="word-wrap: break-word;" data-trim>
-						<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-					</code></pre>
-					<pre><code class="html" style="word-wrap: break-word;" data-trim>
-						<h1 class="text-3xl font-bold underline text-clifford">
-						Hello world!
-						</h1>
-					</code></pre>
-				</section>
-				<section>
-					<h3>Responsive Web Design</h3>
-					<p>Media queries allow us to apply CSS styles based on conditions such as screen size, resolution, orientation, and more. By using media queries, we can tailor our designs to different devices, enhancing user experience.</p>
-					<pre><code class="css" style="word-wrap: break-word;" data-trim>
-						@media media-type and (media-condition) {
-							/* CSS rules */
-						}
-					</code></pre>
-					<pre><code class="css" style="word-wrap: break-word;" data-trim>
-						/* Styles for screens up to 600px wide */
-						@media only screen and (max-width: 600px) {
-							body {
-								background-color: lightblue;
-							}
-						}
-					</code></pre>
-				</section>
-				<section>
-					<h3>Mobile-first</h3>
-					<p>The mobile-first approach involves designing for smaller screens first and then enhancing the layout for larger screens using media queries.</p>
-
-					<pre><code class="css" style="word-wrap: break-word;" data-trim>
-						@media media-type and (media-condition) {
-							/* CSS rules */
-						}
-					</code></pre>
-					<pre><code class="css" style="word-wrap: break-word;" data-trim>
-						/* Styles for screens up to 600px wide */
-						@media only screen and (max-width: 600px) {
-							body {
-								background-color: lightblue;
-							}
-						}
-					</code></pre>
-				</section>
-				<section>
-					<h3>Group Assignment - GA01</h3>
+					<h3>Group Assignment - GA01 (25/10/2025)</h3>
 					<ul>
 						<li>Create a website to introduce group and members</li>
 						<li>Publish static website to a host (github or any cloud services)</li>
@@ -916,6 +870,599 @@
 								<li>Publish on public host: 2.0</li>
 							</ul>
 						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>:nth-child(n)</h3>
+					<p>The CSS pseudo-class selector <code>:nth-child(n)</code> is used to select one or more child elements based on their position within
+					the parent element's child list. It enables styling specific children dynamically by their order number or pattern.</p>
+					<ul>
+						<li>n can be a specific number (e.g., <code>:nth-child(3)</code> targets the third child).</li>
+						<li>Keywords like <code>odd</code> and <code>even</code> select odd-numbered or even-numbered children.</li>
+						<li>It supports formulas like <code>2n+1</code> to choose every other child starting from the first.</li>
+						</p>
+					</ul>
+				</section>
+				<section>
+					<h3>:nth-child(n)</h3>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.nth-child-example li:nth-child(3) {
+							color: red;
+							font-weight: bold;
+						}
+					</code></pre>
+					<style>
+						.nth-child-example li:nth-child(3) {
+							color: red;
+							font-weight: bold;
+						}
+					</style>
+					<ul class="nth-child-example">
+						<li>1st items</li>
+						<li>2nd items</li>
+						<li>3rd items</li>
+						<li>4th items</li>
+					</ul>
+				</section>
+				<section>
+					<h3>:nth-child(n)</h3>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.nth-child-example-2 li:nth-child(even) {
+							color: red;
+							font-weight: bold;
+						}
+					</code></pre>
+					<style>
+						.nth-child-example-2 li:nth-child(even) {
+							color: red;
+							font-weight: bold;
+						}
+					</style>
+					<ul class="nth-child-example-2">
+						<li>1st items</li>
+						<li>2nd items</li>
+						<li>3rd items</li>
+						<li>4th items</li>
+					</ul>
+				</section>
+				<section>
+					<h3>:nth-child(n)</h3>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.nth-child-example-3 li:nth-child(3n+1) {
+							color: red;
+							font-weight: bold;
+						}
+					</code></pre>
+					<style>
+						.nth-child-example-3 li:nth-child(3n+1) {
+							color: red;
+							font-weight: bold;
+						}
+					</style>
+					<ul class="nth-child-example-3">
+						<li>1st items</li>
+						<li>2nd items</li>
+						<li>3rd items</li>
+						<li>4th items</li>
+					</ul>
+				</section>
+				<section>
+					<h3>:hover</h3>
+					<p>Applies styles to an element when a user moves the cursor over it, enabling interactive feedback such as color
+						changes,
+						animations, or revealing hidden content. It is widely used on links, buttons, and other UI elements to enhance
+						usability
+						and visual responsiveness.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.a-hover-example:hover {
+							background-color: lightblue;
+							cursor: wait;
+						}
+					</code></pre>
+					<style>
+						.a-hover-example:hover {
+							background-color: lightblue;
+							cursor: wait;
+						}
+					</style>
+					<div>
+						<a href="#" class="a-hover-example">Hover me!</a>
+					</div>
+				</section>
+				<section>
+					<h3>Floating elements</h3>
+					<p>The <code>float</code> property allows an element to be taken out of the normal flow and positioned to the <code>left</code> or <code>right</code> of its
+					container, with text and inline elements wrapping around it.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.float-left-example {
+							float: left;
+							margin-right: 20px;
+							max-width: 150px;
+						}
+					</code></pre>
+					<div>
+						<img src="img/hcmus.svg" alt="HCMUS" style="float: left; margin-right: 20px; max-width: 150px;">
+						<p>University of Science, Viet Nam National University Ho Chi Minh City</p>
+					</div>
+				</section>
+				<section>
+					<h3>Clearing floats</h3>
+					<p>When we have floated elements, subsequent elements may wrap around them unintentionally. To prevent this, we use the
+					<code>clear</code> property.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						#a-float-box {
+							width: 100px; height: 100px; margin-right: 10px;
+							background-color: lightblue;
+							text-align: center; line-height: 100px;
+						}
+						#a-float-box .float-left { float: left; }
+						#a-float-box .clearfix { clear: both; }
+					</code></pre>
+					<style>
+						#a-float-box .float-left { 
+							width: 100px; height: 100px; margin-right: 10px;
+							background-color: lightblue;
+							text-align: center; line-height: 100px;
+							float: left; 
+						}
+						#a-float-box .clearfix { clear: both; }
+					</style>
+					<div id="a-float-box">
+						<div class="float-left">Box 1</div>
+						<div class="float-left">Box 2</div>
+						<div class="float-left">Box 3</div>
+						<div class="clearfix"></div>
+						<p>This paragraph is below the floated boxes.</p>
+					</div>
+				</section>
+				<section>
+					<h3>Building layouts with floats</h3>
+					<p>Before Flexbox and Grid, floats were commonly used to create multi-column layouts.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						#container-float .sidebar {
+							width: 30%; float: left;
+							background-color: #f0f0f0; padding: 20px;
+						}
+						#container-float .main-content {
+							width: 70%; float: left;
+							background-color: #C8C8C8; padding: 20px;
+						}
+						#container-float ::after { content: ""; display: table; clear: both; }
+					</code></pre>
+					<style>
+						#container-float .sidebar {
+							width: 30%; float: left;
+							background-color: #f0f0f0; padding: 20px;
+						}
+						#container-float .main-content {
+							width: 70%; float: left;
+							background-color: #C8C8C8; padding: 20px;
+						}
+						#container-float ::after { content: ""; display: table; clear: both; }
+					</style>
+					<div>
+						<div id="container-float">
+							<div class="sidebar">Sidebar</div>
+							<div class="main-content">Main</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Flexbox</h3>
+					<p>Flexbox, or the Flexible Box Layout Module, is a powerful CSS layout model that allows us to create responsive and
+					efficient web pages. In this lesson, we’ll explore how to set <code>display: flex</code> and understand the main axis.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						.container-flex {
+							display: flex;
+							background-color: lightgray;
+						}
+					</code></pre>
+					<style>
+						#container-flex {
+							display: flex;
+							background-color: lightgray;
+						}
+					</style>
+					<div>
+						<div id="container-flex">
+							<div style="background-color: lightblue;">Item 1</div>
+							<div style="background-color: lightgreen;">Item 2</div>
+							<div style="background-color: lightcoral;">Item 3</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Flex direction</h3>
+					<p>The <code>flex-direction</code> property defines the direction of the main axis and the order of flex items. The flex-direction property can take the following values: <code>row</code> (default), <code>row-reverse</code>, <code>column</code> and <code>column-reverse</code>.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						#container-flex-2 {
+							flex-direction: column;
+						}
+					</code></pre>
+					<style>
+						#container-flex-2 {
+							display: flex;
+							background-color: lightgray;
+							flex-direction: column;
+						}
+					</style>
+					<div>
+						<div id="container-flex-2">
+							<div style="background-color: lightblue;">Item 1</div>
+							<div style="background-color: lightgreen;">Item 2</div>
+							<div style="background-color: lightcoral;">Item 3</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Flex wrap</h3>
+					<p>By default, flex items try to fit onto one line. The <code>flex-wrap</code> property allows us to control whether items wrap onto
+					multiple lines.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						#container-flex-wrap {
+							display: flex; background-color: lightgray; flex-wrap: wrap; width: 300px;
+						}
+						#container-flex-wrap .item { width: 150px; }
+					</code></pre>
+					<style>
+						#container-flex-wrap {
+							display: flex; background-color: lightgray; flex-wrap: wrap; width: 300px;
+						}
+						#container-flex-wrap .item { width: 150px; }
+					</style>
+					<div>
+						<div id="container-flex-wrap">
+							<div class="item" style="background-color: lightblue;">Item 1</div>
+							<div class="item" style="background-color: lightgreen;">Item 2</div>
+							<div class="item" style="background-color: lightcoral;">Item 3</div>
+							<div class="item" style="background-color: lightyellow;">Item 4</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Justify and Align</h3>
+					<p>The <code>justify-content</code> property aligns flex items along the main axis of the flex container, which is determined by the
+					<code>flex-direction</code> property (default is left to right). The <code>align-items</code> property aligns items along the vertical-axis
+					(perpendicular to the main axis).</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						#container-flex-justify {
+							display: flex; background-color: lightgray; justify-content: center;
+						}
+					</code></pre>
+					<style>
+						#container-flex-justify {
+							display: flex;
+  						background-color: lightgray;
+  						justify-content: center;
+						}
+					</style>
+					<div>
+						<div id="container-flex-justify">
+							<div class="item" style="background-color: lightblue;">Item 1</div>
+							<div class="item" style="background-color: lightgreen;">Item 2</div>
+							<div class="item" style="background-color: lightcoral;">Item 3</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Justify and Align</h3>
+					<p>The <code>align-items</code> property aligns flex items along the vertical-axis.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						#container-flex-align {
+							display: flex; background-color: lightgray;
+							height: 200px;
+							align-items: center;
+						}
+					</code></pre>
+					<style>
+						#container-flex-align {
+							display: flex; background-color: lightgray;
+							height: 200px;
+							align-items: center;
+						}
+					</style>
+					<div>
+						<div id="container-flex-align">
+							<div class="item" style="background-color: lightblue;">Item 1</div>
+							<div class="item" style="background-color: lightgreen;">Item 2</div>
+							<div class="item" style="background-color: lightcoral;">Item 3</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Different values</h3>
+					<p>The <code>justify-content</code> and <code>align-items</code> properties accept various values to control alignment: <code>flex-start</code>, <code>flex-end</code>, <code>center</code>, <code>space-between</code>, <code>space-around</code>, <code>space-around</code> and <code>space-evenly</code></p>
+				</section>
+				<section>
+					<h3>Grid</h3>
+					<p>To begin using CSS Grid we set the display property of an
+					element to <code>grid</code></p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						#container-grid { display: grid; border: 1px solid #ccc; }
+						#container-grid .grid-item { background-color: #f0f0f0; padding: 20px; text-align: center; border: 1px solid #ddd; }
+					</code></pre>
+					<style>
+						#container-grid {
+							display: grid;
+							border: 1px solid #ccc;
+						}
+						#container-grid .grid-item {
+							background-color: #f0f0f0; padding: 20px; text-align: center; border: 1px solid #ddd;
+						}
+					</style>
+					<div>
+						<div id="container-grid">
+							<div class="grid-item">Item 1</div>
+							<div class="grid-item">Item 2</div>
+							<div class="grid-item">Item 3</div>
+							<div class="grid-item">Item 4</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Grid structure</h3>
+					<p>We define the structure of our grid by specifying the number and size of rows and columns using <code>grid-template-columns</code>
+					and <code>grid-template-rows</code>.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						#container-grid { 
+							display: grid; border: 1px solid #ccc; 
+							grid-template-columns: 1fr 1fr; grid-template-rows: auto auto;
+							gap: 10px;
+						}
+						#container-grid .grid-item { background-color: #f0f0f0; padding: 20px; text-align: center; border: 1px solid #ddd; }
+					</code></pre>
+					<style>
+						#container-grid-2 {
+							display: grid;
+							border: 1px solid #ccc;
+							grid-template-columns: 1fr 1fr;
+							grid-template-rows: auto auto;
+							gap: 10px;
+						}
+						#container-grid-2 .grid-item {
+							background-color: #f0f0f0; padding: 20px; text-align: center; border: 1px solid #ddd;
+						}
+					</style>
+					<div>
+						<div id="container-grid-2">
+							<div class="grid-item">Item 1</div>
+							<div class="grid-item">Item 2</div>
+							<div class="grid-item">Item 3</div>
+							<div class="grid-item">Item 4</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Placing grid items</h3>
+					<p>By default, grid items are placed into cells according to the order they appear in the source code. We can explicitly
+					position grid items using the <code>grid-column</code> and <code>grid-row</code>properties.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						#container-grid-3 .grid-item:nth-child(1) {  grid-column: 1 / 3; }
+					</code></pre>
+					<style>
+						#container-grid-3 {
+							display: grid;
+							border: 1px solid #ccc;
+							grid-template-columns: 1fr 1fr;
+							grid-template-rows: auto auto;
+							gap: 10px;
+						}
+						#container-grid-3 .grid-item {
+							background-color: #f0f0f0; padding: 20px; text-align: center; border: 1px solid #ddd;
+						}
+						#container-grid-3 .grid-item:nth-child(1) { grid-column: 1 / 3; }
+						#container-grid-3 .grid-item:nth-child(2) { grid-row: 2 / 3; }
+					</style>
+					<div>
+						<div id="container-grid-3">
+							<div class="grid-item">Item 1</div>
+							<div class="grid-item">Item 2</div>
+							<div class="grid-item">Item 3</div>
+							<div class="grid-item">Item 4</div>
+							<div class="grid-item">Item 5</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Responsive Web Design</h3>
+					<p>Media queries allow us to apply CSS styles based on conditions such as screen size, resolution, orientation, and more. By using media queries, we can tailor our designs to different devices, enhancing user experience.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						/* Styles for screens up to 600px wide */
+						@media only screen and (max-width: 600px) {
+							body {
+								background-color: lightblue;
+							}
+						}
+					</code></pre>
+					<style>
+						@media only screen and (max-width: 600px) {
+							#responsive-element {
+								background-color: lightblue;
+							}
+						}
+					</style>
+					<div id="responsive-element">Responsive element. Try to view in mobile.</div>
+				</section>
+				<section>
+					<h3>Mobile-first</h3>
+					<p>The mobile-first approach involves designing for smaller screens first and then enhancing the layout for larger screens using media queries.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						/* Base styles for mobile devices */
+						.container {
+							display: flex;
+							flex-direction: column;
+						}
+						/* Styles for tablets and larger screens */
+						@media only screen and (min-width: 768px) {
+							.container {
+								flex-direction: row;
+							}
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>CSS: Units</h3>
+					<p>Absolute units are fixed and do not change based on other elements or user settings. They are useful when we need
+					precise control over the size of an element, regardless of the user's environment.</p>
+				</section>
+				<section>
+					<h3>CSS: Units</h3>
+					<p>Some other absolute units in CSS, used to define fixed, unchanging sizes for elements regardless of the viewport or
+					screen size, are as follows:</p>
+					<ul>
+						<li><strong>Points</strong> (pt): Commonly used in print media; 1pt equals 1/72 of an inch.</li>
+						<li><strong>Centimeters</strong> (cm), <strong>millimeters</strong> (mm), <strong>inches</strong> (in): Physical measurements; their on-screen size depends on screen
+						resolution.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>CSS: Units</h3>
+					<p>Percentage units represent a proportion relative to another value, typically the parent element’s dimensions. They are
+					widely used for widths, heights, margins, and padding to create flexible layouts.</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						#percentage-unit { background-color: lightblue; }
+						#percentage-unit div { background-color: lightyellow; width: 80%; padding: 10px; }
+					</code></pre>
+					<style>
+						#percentage-unit {
+							background-color: lightblue;
+						}
+						#percentage-unit div {
+							background-color: lightyellow;
+							width: 80%;
+							padding: 10px;
+						}
+					</style>
+					<div id="percentage-unit">
+						<div>This div occupies 80% of its parent's width.</div>
+					</div>
+				</section>
+				<section>
+					<h3>CSS: Units</h3>
+					<p>The <strong>em</strong> unit is relative to the font size of the element. If not specified, it inherits the font size from its parent.
+					One em equals the current font size.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<div style="font-size: 16px;">
+							<p style="font-size: 1.5em;">This text is 1.5 times the base font size.</p>
+							<p style="font-size: 2em;">This text is twice the base font size.</p>
+						</div>
+					</code></pre>
+					<div style="font-size: 16px;">
+						<p style="font-size: 1.5em;">This text is 1.5 times the base font size.</p>
+						<p style="font-size: 2em;">This text is twice the base font size.</p>
+					</div>
+				</section>
+				<section>
+					<h3>CSS: Units</h3>
+					<p>The <code>rem</code> unit stands for “root em” and is relative to the root element (<code>html</code>) font size. Unlike <code>em</code>, <code>rem</code> does not
+					compound based on parent elements, providing more consistent sizing.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<div style="font-size: 14px;">
+							<p style="font-size: 1.5rem;">This text is 24px regardless of parent font size.</p>
+							<p style="font-size: 2rem;">This text is 32px regardless of parent font size.</p>
+						</div>
+					</code></pre>
+					<div style="font-size: 14px;">
+						<p style="font-size: 1.5rem;">This text is 24px regardless of parent font size.</p>
+						<p style="font-size: 2rem;">This text is 32px regardless of parent font size.</p>
+					</div>
+				</section>
+				<section>
+					<h3>CSS: Units</h3>
+					<p>
+					Viewport units are relative to the viewport’s dimensions:
+						<ul>
+							<li><code>1vw</code> equals 1% of the viewport’s width.</li>
+							<li><code>1vh</code> equals 1% of the viewport’s height.</li>
+						</ul>
+					These units are excellent for responsive typography and scalable elements.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<p style="font-size: 3vw;">
+							This text scales with the viewport width.
+						</p>
+					</code></pre>
+					<p style="font-size: 3vw;">
+						This text scales with the viewport width.
+					</p>
+				</section>
+				<section>
+					<h3>CSS: Units</h3>
+					<p>
+					Selecting the right unit depends on the design requirements and the need for responsiveness. Here are some responsive
+					design considerations to keep in mind when choosing a unit:
+					</p>
+					<ul>
+						<li><strong>For font sizes</strong>: Using <code>rem</code> units for fonts ensures consistency and scalability across the site.</li>
+						<li><strong>For layouts</strong>: Percentages (%) allow elements to adjust based on their parent container.</li>
+						<li><strong>For full-screen elements</strong>: Ideal for elements that need to adapt to the viewport size, such as hero images or full-screen
+						sections.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Tailwind CSS</h3>
+					<p>
+						Tailwind is a set of low-level, reusable utility classes that can be used like building blocks to create virtually any
+						design we can imagine. This utility-first framework covers the most important CSS properties, but it can be easily
+						extended in a variety of ways. It can be used either for rapid prototyping or for creating full-blown designs.
+					</p>
+				</section>
+				<section>
+					<h3>Tailwind CSS</h3>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+					</code></pre>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<h1 class="text-3xl font-bold underline text-clifford">
+						Hello world!
+						</h1>
+					</code></pre>
+				</section>
+				<section>
+					<h3>Tailwind CSS</h3>
+					<p>
+						In Bootstrap, we create a button by using predefined component classes, as in the following example:
+					</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<button class="btn btn-success">Success</button>
+					</code></pre>
+					<p>Here, <strong>btn</strong> and <strong>btn-success</strong> are the component classes. Each one of them represents a collection of predefined CSS
+					settings.</p>
+					<p>In Tailwind, we create a button by using utility classes.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<button class="py-2 px-4 bg-green-500 text-white font-semibold 
+						        rounded-lg shadow-md hover:bg-green-700 focus:outline-none 
+						        focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">
+							Success
+						</button>
+					</code></pre>
+				</section>
+				<section>
+					<h3>Tailwind CSS</h3>
+					<p>
+						In Tailwind, the CSS <code>font-style: italic</code> is represented by the <code>italic</code> utility class.
+					</p>
+					<pre><code class="css" style="word-wrap: break-word;" data-trim>
+						p {
+							font-weight: 700;
+							font-style: italic;
+						}
+					</code></pre>
+					<p>To do the same in Tailwind, we add the font-bold and italic classes directly to the HTML element:</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<p class="font-bold italic">Lorem ipsum...</p>
+					</code></pre>
+				</section>
+				<section>
+					<h3>Tailwind CSS</h3>
+					<p>
+						Here are some more examples:
+					</p>
+					<ul>
+						<li><code>text-align: right</code> becomes <code>text-right</code>.</li>
+						<li><code>font-weight: 700</code> becomes <code>font-bold</code>.</li>
+						<li><code></code>border-radius: 0.25rem<code></code> becomes <code>rounded</code>.</li>
+						<li><code>width: 0.5rem</code> becomes <code>w-2</code>.</li>
+						<li><code>padding: 1.5rem</code> becomes <code>p-6</code>.</li>
 					</ul>
 				</section>
 			</div>
