@@ -13,3 +13,9 @@ console.log('List Items:', listItems);
 console.log('Parent Element:', parent);
 console.log('First Child:', firstChild.textContent);
 console.log('Last Child:', lastChild.textContent);
+
+document.querySelectorAll('.list-item')[0].onclick = function() {
+  const li = document.querySelectorAll('.list-item')[0];
+  li.innerHTML = '<strong>You clicked the button</strong>';
+  li.style.color = 'red';
+};

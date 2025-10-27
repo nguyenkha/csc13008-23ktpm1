@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CSC13008-23KTPM1-04-SSR-and-CSR</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1460132164768330" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Web Application Development</h1>
+					<h2>CSC13008-23KTPM1</h2>
+					<h3>Note 05 - SSR and CSR</h3>
+					<p><small>Lecturer: <a href="mailto:dnkha@fit.hcmus.edu.vn">Đỗ Nguyên Kha</a></small></p>
+					<p><small>Semester 1/2025-2026 @ FIT-HCMUS</small></p>
+					<p><small><a href="?print-pdf">[Print]</a></small></p>
+				</section>
+				<section>
+					<h3>Content</h3>
+					<ol>
+						<li>JavaScript</li>
+						<li>SSR</li>
+						<li>CSR</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Variable declaration</h3>
+					<p>
+						In JavaScript, we use <code>let</code> to declare a variable. Here’s an example:
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let persons; // declaring a variable
+					</code></pre>
+					<p>Here, the variable <code>persons</code> is declared, but its value is <code>undefined</code>.</p>
+				</section>
+				<section>
+					<h3>Variable declaration</h3>
+					<p>
+						JavaScript supports the following:
+					</p>
+					<ul>
+						<li><strong>Number:</strong> Numeric values (<code>5</code>, <code>3.0</code>, <code>-1</code>, etc.)</li>
+						<li><strong>String:</strong> String values (<code>HCMUS</code>, <code>JavaScript</code>, etc.)</li>
+						<li><strong>Boolean:</strong> Boolean values (<code>true</code>, <code>false</code>)</li>
+					</ul>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let persons = 5;
+						let totalWeight = 350.6;
+						let team = "A";
+						let isTeamA = true;
+					</code></pre>
+				</section>
+				<section>
+					<h3>Operations</h3>
+					<p>
+						The type of data also tells which operations are permissible on a specific piece of data and indicates the semantics (or
+						meaning) of those operations. The following code demonstrates the effect of the <strong>+</strong> operation on different types of data
+						in JavaScript:
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let a = 5;
+						let b = 7;
+						let sum1 = a + b; // sum of a and b
+						console.log("The sum of numbers: " + sum1); // will result in whole number
+					</code></pre>
+				</section>
+				<section>
+					<h3>Operations</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let c = 3.2;
+						let d = 1.5;
+						let sum2 = c + d; // sum of c and d
+						console.log("The sum of numbers: " + sum2); // will result in decimal point number
+					</code></pre>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let e = 3;
+						let f = 1.5;
+						let sum3 = e + f; // sum of e and f
+						console.log("The sum of numbers: " + sum3); // will result in decimal point number
+					</code></pre>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let g = "5";
+						let h = "7";
+						let result = g + h; // concatenates g and h
+						console.log("The concatenation of strings: " + result);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Input</h3>
+					<p>
+						When we use a <code>prompt()</code> statement in JavaScript, it always returns a string of characters. Even the integer, 25, is
+						considered a string, as shown in the following code widget:
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let a = prompt("Enter an integer?"); // 1st integer
+						let b = prompt("Enter another integer?"); // 2nd integer
+						let result = a + b; // adding up
+						console.log("When we apply + operator it gives " + result + " which is concatenation of two strings!");
+					</code></pre>
+					<p>
+						In the code above, integers are treated as strings and they are concatenated due to the <code>+</code> operator in the output.
+					</p>
+				</section>
+				<section>
+					<h3><code>parseInt()</code></h3>
+					<p>
+						We must convert the input value to the suitable data type to apply the correct operation. We should use the <code>parseInt()</code>
+						to convert it into an integer, as demonstrated below:
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let a = parseInt(prompt("Enter an integer?")); // 1st integer
+						let b = parseInt(prompt("Enter another integer?")); // 2nd integer
+						let result = a + b; // adding up
+						console.log("When we apply + operator it gives " + result + " which is addition of two numbers!");
+					</code></pre>
+					<p>
+						Note: Even if the input value is a floating-point, <code>parseInt()</code> converts it into an integer. The result contains only the
+						integer part in the output.
+					</p>
+				</section>
+				<section>
+					<h3><code>parseFloat()</code></h3>
+					<p>
+						Similarly, we can use the <code>parseFloat()</code> to store a floating-point value in a variable, as demonstrated below:
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let a = parseFloat(prompt("Enter a floating-point value?")); // Taking float variable input in a
+						console.log("You entered the value " + a);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Operators</h3>
+					<p>
+						There are several other commonly used operators in JavaScript, including:
+					</p>
+					<ul>
+						<li><strong>Arithmetic operators:</strong> These are used for arithmetic operations (addition, subtraction, multiplication, etc.).</li>
+						<li><strong>Comparison operators:</strong> These are used in conditional expressions (less than, greater than, etc.).</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Operators</h3>
+					<ul>
+						<li><strong>Logical operators:</strong> These are used to combine conditional expressions (and, or, not).</li>
+						<li><strong>Compound assignment operators:</strong> These are the combinations of arithmetic and assignment operators.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Conditional Statement</h3>
+					<p>
+						The most commonly used conditional statement in JavaScript is the <code>if</code> statement. It contains a conditional expression and
+						a true branch, and it may contain a false branch. The true branch is executed when the conditional expression is <code>true</code>.
+						The false branch, if present, is executed when the conditional expression is <code>false</code>. The following program demonstrates
+						the use of the conditional statement.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						if (conditional statement) { // no semicolon here
+							// execution starts from here if the conditional statement is true
+						} else { // no semicolon here
+							// if the if branch is not executed then this part of the code is executed
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Conditional Statement</h3>
+					<p>
+						We want to write a program that determines eligibility for a driver’s license based on the <code>age</code> that has been input by
+						the user. The eligible age should be <code>18</code> or above.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let age = parseInt(prompt("Enter your age?")); // taking age input
+						if (age >= 18) { // if age is greater than and equal to 18
+							console.log("You are eligible for a driver's license.");
+						} else {
+							console.log("You are not eligible for a driver's license.");
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Ternary Operators</h3>
+					<p>
+						Ternary operators are a shortcut to an if-condition which executes expressions depending on whether the condition is
+						true or false.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let variable = 0;
+						if (variable === 0){
+							variable = 1;
+						} else{
+							variable = 0;
+						}
+						console.log('variable:', variable);
+						
+						variable = 0;
+						variable = variable === 0 ? 1 : 0; // 1 if variable is 0 else 0
+						console.log('variable:', variable);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Ternary Operators</h3>
+					<p>
+						Ternary operators are a shortcut to an if-condition which executes expressions depending on whether the condition is
+						true or false.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						<Condition> ? <Expression1> : <Expression2>;
+					</code></pre>
+				</section>
+				<section>
+					<h3>The <code>for</code> loop</h3>
+					<p>
+						The counter-controlled loop is used to generate a sequence of values. This loop has four parts after the <code>for</code> keyword as
+						shown below:
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						for (initialization; condition; update) {
+							// body of the loop
+						}
+					</code></pre>
+					<p>The initialization value initializes the counter and is executed only once. The condition value checks the value of the
+					counter at the start of each iteration before entering the body of the loop. If it’s true, the body of the <code>for</code> loop is
+					executed, and if false, the <code>for</code> loop is terminated. The update value updates the value of the counter and again checks
+					the condition.</p>
+				</section>
+				<section>
+					<h3>The <code>for</code> loop</h3>
+					<p>
+						The counter-controlled loop is used to generate a sequence of values. This loop has four parts after the <code>for</code> keyword as
+						shown below:
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						for (let a = 0; a < 5; a++) // Using for loop 
+							console.log(a);
+					</code></pre>
+				</section>
+				<section>
+					<h3>The <code>while</code> loop</h3>
+					<p>
+						We use the <code>while</code> loop when the termination of the loop depends on the sentinel value instead of a definite number of
+						iterations. As a simple example, we want to display the reverse sequence of digits in a positive integer value input by
+						the user.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let a = parseInt(prompt("Enter a number")); // Taking input in variable a
+						let result = "";
+						while (a > 0) { // This loop will terminate when the value is not greater than 0
+							result += (a % 10); // Storing result
+							a = parseInt(a / 10); // Dividing a by 10 and assigning the result to variable a
+						}
+						console.log(result);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Types of types</h3>
+					<p>
+						Types in JavaScript group together similar kinds of values. We can further categorize these types into the following:
+					</p>
+					<ul>
+						<li>Primitive values</li>
+						<li>Objects and functions</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Primitive values</h3>
+					<p>
+						Following are all types that fall under the primitive category:
+					</p>
+					<ul>
+						<li>Boolean</li>
+						<li>Number</li>
+						<li>Null</li>
+						<li>Undefined</li>
+						<li>String</li>
+						<li>Symbol</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Boolean</h3>
+					<p>
+						These are values that take only the values <code>true</code> and <code>false</code>.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var bool_true = true; // initialize variable to true
+						var bool_false = new Boolean(false); // initialize variable to false
+						// print values
+						console.log('The values are:', bool_true, bool_false);
+						// print types
+						console.log('The types are:', typeof(bool_true), typeof(bool_false));
+					</code></pre>
+				</section>
+				<section>
+					<h3>Number</h3>
+					<p>
+						Number data type consists of all numeric values. They include regular numbers and decimals. Not all numbers can be
+						perfectly represented in JavaScript. Their decimal part offers more precision when closer to <code>0</code> and less precision
+						further away from it.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var num1 = 120; // initialize variable to 120
+						var num2 = new Number(0.002); // initialize variable to 0.002
+						// print values
+						console.log('The values are:', num1, num2);
+						// print types
+						console.log('The types are:', typeof(num1), typeof(num2));
+					</code></pre>
+				</section>
+				<section>
+					<h3>Number</h3>
+					<p>
+						The numbers type also consists of “special numeric values,” represented by <code>Infinity</code>, <code>-Infinity</code>, and <code>NaN</code> (Not a Number).
+					</p>
+					<p><code>NaN === NaN</code> is <code>false</code>, even though they are the same value.</p>
+					<p><code>0 === -0</code> and <code>-0 === 0</code> is <code>true</code>, but they are different values.</p>
+				</section>
+				<section>
+					<h3>Null</h3>
+					<p>
+						Null is a type that allows us to represent nothing.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var num1 = null; // initialize variable to null
+						// print values
+						console.log('The values are:',num1);
+						// print types
+						console.log('The types are:',typeof(num1));
+					</code></pre>
+					<p>And although the <code>typeof</code> function shows that it is of type <code>object</code>, it is <strong style="color: red">not</strong>. It is a
+					primitive type. For legacy reasons, the <strong>typeof</strong> will show that null is of type object.</p>
+				</section>
+				<section>
+					<h3>Undefined</h3>
+					<p>
+						Undefined is a value assigned to variables that have not been assigned a value.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var num1; // initialize variable without assignment
+						var num2 = undefined; // initialize variable to undefined
+						
+						// print values
+						console.log('The values are:', num1, num2);
+						// print types
+						console.log('The types are:', typeof(num1), typeof(num2));
+					</code></pre>
+					<p>The difference between <code>null</code> and <code>undefined</code> types can be confusing. <code>null</code> expresses a lack of identification while
+					<code>undefined</code> represents a lack of assignment of the variable.</p>
+				</section>
+				<section>
+					<h3>Objects</h3>
+					<p>
+						Almost everything in JavaScript is made up of objects. These are all the non-primitive types. They include arrays, dates, and almost everything non-primitive.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var obj = {}; // Declare our object
+						//print value and type of obj
+						console.log('Our object:', obj);
+						console.log('Type of our object:', typeof(obj));
+					</code></pre>
+				</section>
+				<section>
+					<h3>Objects</h3>
+					<p>
+						While declaring or after declaring an object, we can assign and modify the properties of an object. A property is a
+						(key, value) pair, where a key is a string (also called a “property name”), and value is the assigned value. Let’s look
+						at the code below.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						// Declare our object with a `name` property having value: “obj”
+						var obj = {name : "obj" , 'age': 20};
+						// defining properties and assigning values using . operator
+						obj.number = 13;
+						// defining properties and assigning values using [] operator
+						obj['obj2'] = {};
+						//print value 
+						console.log('Our object:', obj);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Objects</h3>
+					<p>
+						You can access a property of an object using <code>.</code> and <code>[]</code> operators. Let’s see an example.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var obj = {name : "obj", number: 13, obj2: {} }; // Declare our object
+						var num_obj = obj['number'];
+						var name = obj.name;
+						console.log(`obj['number']: ${obj['number']} , ${num_obj}`);
+						//print name of the obj
+						console.log(`obj.name: ${obj.name} , ${name}`);
+						// print the types of properties
+						console.log(`types: ${typeof(obj['number'])}, ${typeof(num_obj)}`);
+						console.log(`types: ${typeof(obj['name'])}, ${typeof(name)}`);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Date</h3>
+					<p>
+						Date is an object with an interface to store date and time. It also allows you to format or manage them.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var obj = new Date() // create a Date obj and assign to obj
+						console.log(obj); // print obj
+						console.log(obj.getFullYear()); // print getFullYear method of date
+					</code></pre>
+				</section>
+				<section>
+					<h3><code>String</code></h3>
+					<p>
+						A string is a collection of characters, mostly treated as a single unit. It is used to store text values like a name,
+						address, message, etc. There are various ways to initialize a string in JavaScript. The following program demonstrates these methods:
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let s1 = 'String in Single Quotes';
+						console.log(s1);
+						
+						let s2 = "String in Double Quotes";
+						console.log(s2);
+						
+						let s3 = `String in Backticks`;
+						console.log(s3);
+					</code></pre>
+				</section>
+				<section>
+					<h3><code>String</code></h3>
+					<p>
+						JavaScript allows us to access individual characters inside a string through an integer index number. To do this, we
+						enclose the index number in square brackets after the string variable name, as shown in the following program:
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let s = "HCMUS";
+						console.log(s)
+						console.log(s[0]); // Displaying first element of string
+						console.log(s[1]); // Displaying second element of string
+						console.log(s[2]); // Displaying fourth element of string
+						console.log(s[3]); // Displaying fifth element of string
+						console.log(s[4]); // Displaying sixth element of string
+					</code></pre>
+				</section>
+				<section>
+					<h3><code>String</code></h3>
+					<p>
+						The same task can also be performed using loops as well. The previous program can be written in the following manner.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let s = "HCMUS";
+						let length = s.length; // Storing the length of the array
+						for (let i = 0; i < length; i++) { 
+							console.log(s[i]);
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3><code>Array</code></h3>
+					<p>
+						In JavaScript, an array is a collection of values. It is a comma-separated list of values enclosed in a pair of square
+						brackets. An array can be stored as a single variable. For example, <code>["apple", "mango", "banana"]</code> is an array of strings.
+						It can be stored as a variable, as shown in the code below:
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let arrayOfFruits = ["apple", "mango", "banana"]; // Creating an array of strings
+						console.log(arrayOfFruits); // Listing the values of array
+					</code></pre>
+				</section>
+				<section>
+					<h3><code>Array</code></h3>
+					<p>
+						The following program demonstrates the various types of arrays in JavaScript:
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let a1 = []; // Empty Array
+						let a2 = [100]; // Single-valued array
+						let a3 = [7, 7, 4, 4, 3, 3, 3, 6, 5]; // Array having duplicate Numbers
+						let a4 = [50, 'Learn', 10, 'To', 2.5, -1, 'Code']; // Array with the use of mixed values
+					</code></pre>
+				</section>
+				<section>
+					<h3><code>Array</code></h3>
+					<p>
+						The individual values in an array are accessed through an index. An index is an integer representing the position of an
+						individual value in the array. We enclose the index in square brackets after the array variable name. The first value is
+						at index 0, and the index moves forward in the array by linear increments, as demonstrated in the following code:
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let a = [-5, 'JavaScript', 3.8];
+						console.log("Array items in the forward order: ");
+						console.log("The value at index 0: " + a[0]);
+						console.log("The value at index 1: " + a[1]);
+						console.log("The value at index 2: " + a[2]);
+					</code></pre>
+				</section>
+				<section>
+					<h3>The <code>for</code> loop with arrays</h3>
+					<p>
+						The individual values in an array are accessed through an index number. The for loop variable can be used as an index
+						number.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let vals = [-5, 'JavaScript', 3.8];
+						console.log("Using loop variable as a list index");
+						for (let i of [0, 1, 2]) {
+							console.log(vals[i]);
+						}
+						console.log("Directly accessing the elements");
+						for (let v of vals) { // string v is read only
+							console.log(v);
+						}
+						let mix = ['a', 1, 2.5, 'i', 50, 6, 'm', 4.4, 6.7, 's', 'fit@hcmus'];
+						console.log('List index using "length"');
+						for (let v = 0; v < mix.length; v++) { console.log(mix[v]); }
+					</code></pre>
+				</section>
+				<section>
+					<h3>Function</h3>
+					<p>
+						We can divide a program into procedural components or modules called functions in JavaScript. Functions can be copied and reused in a programming technique called a modular or procedural approach, also known as the
+						divide and conquer approach.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						// Defining a function named sayHello
+						function sayHello() {
+							console.log("Hello");
+						}
+						// Calling the function
+						sayHello();
+					</code></pre>
+				</section>
+				<section>
+					<h3>Function</h3>
+					<p>
+						A function has the following properties:
+					</p>
+					<ul>
+						<li>A list of arguments which can be anything and is optional. This is the input to the function.</li>
+						<li>A program block is executed on the invocation of the function.</li>
+						<li>An output that is returned after the function finishes executing using a return statement.</li>
+					</ul>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						// Define function that takes the sum of two numbers
+						function sum(a , b){
+							console.log('Taking sum in the function'); // print to see function execute
+							var ans = a + b; // assign sum of a and b to ans
+							return ans; // return ans as output
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Arrow Function</h3>
+					<p>
+						Arrow function or an arrow function expression is the more concise syntax for writing regular function expressions. Also
+						known as a fat arrow function, they utilize <code>=></code> token, which is shaped like a fat arrow. With their concise syntax, we
+						avoid writing <code>return</code> tokens, <code>function</code> token, and curly brackets. Let’s look at the following syntax.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						// Define function that takes the sum of two numbers
+						var func = (a, b) => { // Create arrow function for taking sum of two numbers
+							var sum = a + b; // take sum of a and b and assign to sum variable
+							return sum; // return sum
+						}
+						console.log("Sum of 1 and 3:" , func(1,3)); // print func with arguments 1 and 3
+					</code></pre>
+				</section>
+				<section>
+					<h3>Arrow Function</h3>
+					<p>A single-lined function can be more concise</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var func = (a, b) => a + b; // arrow function assigned to func to add a and b
+						console.log("Sum of 1 and 3:" , func(1,3)); // print func with arguments 1 and 3
+					</code></pre>
+				</section>
+				<section>
+					<h3>Global scope</h3>
+					<p>Global scope is the outermost scope in the JavaScript program. In this scope, all variables are accessible by any other
+					scope of the program.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var a = 10; // variable a assigned to 10
+						
+						var func = function (){
+							var innerFunc= function () {
+								console.log("a is accessible:", a);
+							}
+							innerFunc();
+							return;
+						}
+						func(); // invoke function func
+					</code></pre>
+				</section>
+				<section>
+					<h3>Local Scope</h3>
+					<p>Local scopes are scopes that limit their accessibility of variables to only certain parts of the program. Despite this,
+					they have full access to all variables in the global scope. The local scope has the following types.</p>
+					<ul>
+						<li>Function scope</li>
+						<li>Block scope</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Function Scope</h3>
+					<p>Function scope is the scope inside the function declaration. Any variable declared inside a function would not be
+					accessible outside of it.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var a = 10; // variable a assigned to 10
+						
+						var func = function () { // outermost function
+						var b = 20;
+							console.log("a and b is accessible (outer):", a, b);
+							var innerFunc = function () { // innermost function
+								console.log("a and b is accessible (innner):", a, b);
+							}
+							innerFunc();
+							return;
+						}
+						func(); // invoke function func
+						console.log("only a is accessible (global):", a);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Block Scope</h3>
+					<p>Block scope is a local scope bounded between two curly brackets <code>{}</code>. The block scope lets you limit the accessibility of
+					all variables declared inside it. This scope uses <code>let</code> or <code>const</code> token, only letting these variables be accessed inside
+					the curly brackets <code>{}</code>. However, variables declared by var token are not bound by block scope and are accessible outside
+					it.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var a = 10; // variable a assigned to 10
+						if (a === 10) {
+							let b = 6; // variable b assigned to 6 using let
+							var c = 7; // variable c assigned to 7 using var
+							console.log("a, b and c accessible (block scope)", a, b, c); // a, b and c accessible inside block scope
+						}
+						console.log("a and c accessible (global scope)", a, c); // in global scope on a and c accessible
+					</code></pre>
+				</section>
+				<section>
+					<h3>Regular Expressions</h3>
+					<p>In programming, we frequently parse or make queries over strings. Pattern matchings become tedious when writing string
+					manipulation or iteration code. Moreover, it is not always best to write loops to index and iterate strings for
+					manipulation. The solution to these issues? Regular expressions.</p>
+				</section>
+				<section>
+					<h3>Regular Expressions</h3>
+					<p>Regular expressions are expressions containing a sequence of characters to invoke a sequence matching or pattern
+					matching of strings. They usually carry out “search and replace” actions. These are sometimes called rational
+					expressions or RegEx for short. RegExes are available in most programming languages including JavaScript.</p>
+				</section>
+				<section>
+					<h3>Regular Expressions</h3>
+					<p>There are two formats when writing a RegEx in JavaScript.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var regex1 = /[a-b]*/; // Create a regex and assign to regex1
+						var regex2 = RegExp('[a-b]*'); // Create a regex and assign to regex2
+						console.log(regex1, regex2); // Print the regex variables
+					</code></pre>
+				</section>
+				<section>
+					<h3>Regular Expressions</h3>
+					<p>The <code>exec</code> method runs the regular expression on a string passed as an argument and returns the found text as an object.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var regex = /[a-b]+/i; // Create a regex and assign to regex
+						console.log('exec on "Abc123":', regex.exec("Abc123"));
+						console.log('exec on "123":', regex.exec("123"));
+						console.log('exec on "ABC":', regex.exec("ABC"));
+					</code></pre>
+				</section>
+				<section>
+					<h3>Regular Expressions</h3>
+					<p>The <code>test</code> method runs the regular expression on a string passed as an argument and returns a boolean value telling if a
+					match was found or not</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var regex = /[a-b]+/i; // Create a regex and assign to regex
+						console.log('test on "Abc123":', regex.test("Abc123"));
+						console.log('test on "123":', regex.test("123"));
+						console.log('test on "ABC":', regex.test("ABC"));
+					</code></pre>
+					<p>From the above code, we can see how to use the <code>test</code> method on RegEx. For each of the strings passed, it
+						returns <code>true</code> if
+						a match is found or <code>false</code> if no match is found.</p>
+				</section>
+				<section>
+					<h3>Object-oriented programming</h3>
+					<p>In JavaScript, there are two approaches to implementing OOPs: prototype-based and class-based.</p>
+				</section>
+				<section>
+					<h3>Prototype-based programming</h3>
+					<p>Before (and even after) introducing its ES2015 version, JavaScript relied on prototype-based programming. In this
+					programming style, the object encapsulates the properties, its methods and data, instead of a class. You can add new
+					properties to this object whenever you want. An object can be an individual, instead of an instance of the class; if you
+					want an object, you can create one without creating a class first.</p>
+				</section>
+				<section>
+					<h3>Prototype-based programming</h3>
+					<p>The class-based programming was introduced in the ES2015 version of JavaScript and allows using the class token in
+					implementation. Furthermore, they assist in inheritance and in implementing OOPs through <code>constructor</code>, <code>extend</code>, <code>super</code>, and
+					<code>static</code> keywords. This new syntax is clearer and easier to use.</p>
+					<p><strong>Note:</strong> Both prototype-based and class-based programming have the same back-end implementation and only differ in the
+					syntactic aspect.</p>
+				</section>
+				<section>
+					<h3>Prototypes</h3>
+					<p>All JavaScript objects have the property prototype. They go under the property name <code>__proto__</code>. The prototype of each
+					object is assigned during creation and is itself an object</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let vehicle = { wheels : 4 }; // object assigned to variable named vehicle
+						let car = { seats : 5 }; // object assigned to variable named car
+						let driver = {} // empty object assigned to variable named driver
+						
+						// Print all objects and __proto__ property for each variable
+						console.log(`vehicle:`, vehicle, vehicle.__proto__);
+						console.log(`car:`, car, car.__proto__);
+						console.log(`driver:`, driver, driver.__proto__);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Prototypes</h3>
+					<p>Assigning vehicle to car object’s <code>__proto__</code> property allows car object to access properties of the object <code>vehicle</code>.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let vehicle = { wheels : 4 }; // object assigned to variable named vehicle
+						let car = {
+							seats : 5,
+							__proto__ : vehicle // __proto__ property assigned to vehicle
+						}; // object assigned to variable named car
+						
+						// Print all objects and __proto__ property for each variable
+						console.log(`vehicle:`, vehicle, vehicle.__proto__);
+						console.log(`car:`, car, car.__proto__);
+						console.log(`vehicle seat:`,vehicle.seats);
+						console.log(`car wheels:`, car.wheels);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Constructor Functions</h3>
+					<p>Constructor functions, or object constructor functions, contain blueprints to a type of object that has properties and
+					methods to generate objects. All objects created from a constructor function will have the same properties and methods.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						function Employee(_name, _age, _designation){
+							// Properties assignment passed as arguments
+							this.name = _name;
+							this.age = _age;
+							this.designation = _designation;
+							// Method
+							this.setAge = newage => {
+								console.log(`setting age from ${this.age} to ${newage}`)
+								this.age = newage;
+							}
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Constructor Functions</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var employee1 = new Employee('Mark', 12, 'Manager'); // create Employee object
+						// Print Employee object assigned to employee1
+						console.log(`employee1 name: ${employee1.name} age: ${employee1.age}`);
+						employee1.setAge(20); // call method to set age of employee1
+						console.log(`employee1 name: ${employee1.name} age: ${employee1.age}`);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Constructor Functions</h3>
+					<p>All objects created by the constructor function share its prototype object. In our earlier example, all objects created
+					using <code>Employee</code> constructor function will share the same prototype object assigned to <code>__proto__</code> property.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						var employee1 = new Employee('Mark', 20, 'Manager'); // create Employee object
+						var employee2 = new Employee('Bob', 30, 'Accountant'); // create Employee object
+						// Print Employee objects prototype objects
+						console.log(employee1.name, employee2.name);
+						console.log(Employee.prototype);
+						console.log(`employee protoypes: ${employee1.__proto__}, ${employee2.__proto__}`);
+						console.log(`protoype equalities: ${employee1.__proto__ === employee2.__proto__}`);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Classes</h3>
+					<p>Similar to constructor functions, classes are blueprints of a type of object with the certain properties and methods to
+					generate objects. All objects created from a class have the same properties and methods, though not necessarily the same
+					values. Instead of using functions, they use <code>class</code> keyword to create classes used to implement this functionality.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						class ClassName {
+							constructor(parameter1, parameter2,...) {
+								//initializing class properties
+							}
+							//class methods defined
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Classes</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						class Employee{
+							constructor(_name, _age, _designation){
+								this.name = _name;
+								this.age = _age;
+								this.designation = _designation;
+							}
+							// Methods defined outside the constructor
+							setAge(newage){
+								console.log(`setting age from ${this.age} to ${newage}`)
+								this.age = newage;
+							}
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Inheritance</h3>
+					<p>In JavaScript, we implement inheritance through manipulating prototypes of objects. An object’s ability to inherit
+					properties of another object through manipulating the prototype property is called prototypal inheritance. This accesses
+					properties and methods from the object from which it inherits.</p>
+				</section>
+				<section>
+					<h3>Inheritance</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let vehicle = { wheels : 4 }; // object assigned to variable named vehicle
+						let car = {
+							seats : 5,
+							__proto__ : vehicle // __proto__ property assigned to vehicle
+						}; // object assigned to variable named car
+						let bmw = {
+							price : 50000,
+							owner : "Bob",
+							__proto__ : car, // __proto__ property assigned to car (inherits car)
+						};
+						// Print all properties of bmw object
+						console.log("BMW price:", bmw.price);
+						console.log("BMW owner:", bmw.owner);
+						console.log("BMW seats:", bmw.seats);
+						console.log("BMW wheels:", bmw.wheels);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Inheritance in Constructor Functions</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						function Base() {}
+						function Derived() {}
+						// Set the `[[Prototype]]` of `Derived.prototype`
+						// to `Base.prototype`
+						Object.setPrototypeOf(Derived.prototype, Base.prototype);
+
+						const obj = new Derived();
+						// obj ---> Derived.prototype ---> Base.prototype ---> Object.prototype ---> null
+					</code></pre>
+				</section>
+				<section>
+					<h3>Inheritance in classes</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						class Base {}
+						class Derived extends Base {}
+						
+						const obj = new Derived();
+						// obj ---> Derived.prototype ---> Base.prototype ---> Object.prototype ---> null
+					</code></pre>
+				</section>
+				<section>
+					<h3>Request-Response Cycle</h3>
+					<p>In web development, the request-response cycle is fundamental to how servers and clients communicate. Every time a user
+					interacts with a website—whether by clicking a link, submitting a form, or making an API request—a request is sent to
+					the server, and the server processes it before responding.</p>
+					<img style="width: 50%;" src="https://media.geeksforgeeks.org/wp-content/uploads/20250705152348042640/Request-and-Response-Cycle.webp">
+					<small>Source: <a
+							href="https://www.geeksforgeeks.org/web-tech/request-and-response-cycle-in-express-js/">https://www.geeksforgeeks.org/web-tech/request-and-response-cycle-in-express-js/</a></small>
+				</section>
+				<section>
+					<h3>The request-response cycle in Express.js</h3>
+					<p>Express.js acts as an intermediary between the client and the server, handling incoming requests and determining the
+					appropriate response. The cycle follows the steps below:</p>
+					<ol>
+						<li>A client (browser or API consumer) requests HTTP.</li>
+						<li>Express.js receives the request and processes it.</li>
+						<li>The server performs necessary operations (e.g., retrieving data and executing logic).</li>
+						<li>A response is generated and sent back to the client.</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Request Object</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const express = require("express");
+						const app = express();
+						const port = 3000;
+						
+						app.get("/log", (req, res) => {
+							console.log("Incoming request details:", req.method, req.url);
+							console.log("Query Params:", req.query);
+							console.log("Body:", req.body);
+							res.send("Request details logged to console");
+						});
+						
+						app.listen(port, () => {
+						console.log(`Server is running on http://localhost:${port}`);
+						});
+					</code></pre>
+				</section>
+				<section>
+					<h3>Response Object</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const express = require("express");
+						const app = express();
+						const port = 3000;
+						
+						app.get("/greet", (req, res) => {
+							res.send("Hello, welcome to our API!");
+						});
+						
+						app.get("/json", (req, res) => {
+							res.json({ message: "Hello, this is a JSON response!" });
+						});
+						
+						app.get("/error", (req, res) => {
+							res.status(404).send("Page not found!");
+						});
+						
+						app.get("/redirect", (req, res) => {
+							res.redirect("/greet"); // Redirects to the /greet endpoint
+						});
+						
+						app.get("/file", (req, res) => {
+							res.sendFile(__dirname + "/example.txt"); // Serves a file from the server
+						});
+						
+						app.get("/end", (req, res) => {
+							res.write("Processing...");
+							res.end(); // Ends the response without sending additional data
+						});
+						
+						app.listen(port, () => {
+							console.log(`Server is running on http://localhost:${port}`);
+						});
+					</code></pre>
+				</section>
+				<section>
+					<h3>Routing</h3>
+					<p>Routing determines how a web application handles incoming requests based on the requested URL and HTTP method. Think of
+					it like a traffic system, directing users to the right destination. For example, when someone visits
+					a website, the application must decide whether to display a web page or return data.</p>
+				</section>
+				<section>
+					<h3>Routing</h3>
+					<p>In Express.js, a route defines how an application processes incoming requests. A route consists of three key parts:</p>
+					<ul>
+						<li><strong>Path:</strong> This is the requested resource.</li>
+						<li><strong>HTTP method:</strong> This specifies the type of request (<code>GET</code>, <code>POST</code>, <code>PUT</code>, or <code>DELETE</code>) and the intended action (retrieving, creating, updating, or deleting data).</li>
+						<li><strong>Route handler:</strong> This function processes the request and sends a response.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Routing</h3>
+					<p>Here is an example of a route that handles <code>GET</code> requests at the <code>/welcome</code> path and responds with <code>'Welcome to Express.js!'</code>.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						app.get('/welcome', (req, res) => {
+							res.send('Welcome to Express.js routing!');
+						});
+					</code></pre>
+				</section>
+				<section>
+					<h3>View</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const express = require('express');
+						const app = express();
+						const port = 3000;
+						
+						// Set EJS as the templating engine
+						app.set('view engine', 'ejs');
+						app.set('views', './views');
+						
+						// Sample data
+						const products = [
+							{ id: 1, name: 'Laptop', price: 75000 },
+							{ id: 2, name: 'Mobile', price: 25000 },
+							{ id: 3, name: 'Tablet', price: 35000 }
+						];
+						
+						// Route to render products with EJS
+						app.get('/products', (req, res) => {
+							res.render('products', {
+								title: 'Product Catalog',
+								products: products
+							});
+						});
+						
+						// Root route
+						app.get('/', (req, res) => {
+							res.render('index', { title: 'Home', message: 'Welcome to the store!' });
+						});
+						
+						// Start server
+						app.listen(port, () => {
+							console.log(`Server running at http://localhost:${port}`);
+						});
+					</code></pre>
+				</section>
+				<section>
+					<h3>Server-side rendering</h3>
+					<p>Server-side rendering (SSR) refers to the practice of generating HTML content on the server and sending it to the
+					client. SSR is opposed to client-side rendering, where the client generates the HTML content using JavaScript. Both
+					techniques are not mutually exclusive and can be used together in the same application.</p>
+				</section>
+				<section>
+					<h3>Server-side rendering</h3>
+					<p>A static site can be considered as SSR (and can be generated using SSR infrastructure), but there are nuanced
+						differences. Content of a static site is generated at build time, not at request time. Static sites often do not
+						need to
+						be deployed on a server at all, and can be served from a CDN.</p>
+				</section>
+				<section>
+					<h3>Server-side rendering</h3>
+					<p>Benefits of SSR include:</p>
+					<ul>
+						<li>Accessibility</li>
+						<li>Crawler-friendliness</li>
+						<li>Performance</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Client-side rendering</h3>
+					<p>Client-side rendering (CSR) refers to the practice of generating HTML content using JavaScript in the browser. CSR is
+					opposed to server-side rendering, where the server generates the HTML content. Both techniques are not mutually
+					exclusive and can be used together in the same application.</p>
+				</section>
+				<section>
+					<h3>Client-side rendering</h3>
+					<p>Benefits of CSR include:</p>
+					<ul>
+						<li>Interactivity</li>
+						<li>Performance</li>
+					</ul>
+				</section>
+				<section>
+					<h3>AJAX</h3>
+					<p><strong>A</strong>synchronous <strong>J</strong>avaScript <strong>a</strong>nd <strong>X</strong>ML lets a web page communicate with a server to fetch or send data without reloading
+					the entire page. This enables dynamic updates and smoother user experiences. It typically uses the XMLHttpRequest API or
+					the newer Fetch API.</p>
+				</section>
+				<section>
+					<h3><code>XMLHttpRequest</code></h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						// Simple AJAX GET request using XMLHttpRequest
+						const xhr = new XMLHttpRequest();
+						xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+
+						xhr.onload = function() {
+							if (xhr.status >= 200 && xhr.status < 300) {
+								console.log('Response:', xhr.responseText);
+							} else {
+								console.error('Request failed with status:', xhr.status);
+							}
+						};
+
+						xhr.onerror = function() {
+							console.error('Network error occurred');
+						};
+
+						xhr.send();
+					</code></pre>
+				</section>
+				<section>
+					<h3><code>fetch</code></h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						fetch('https://jsonplaceholder.typicode.com/posts')
+						.then(response => {
+							if (!response.ok) {
+								throw new Error('Network response was not ok');
+							}
+							return response.json();
+						})
+						.then(data => {
+							console.log('Data received:', data);
+						})
+						.catch(error => {
+							console.error('Fetch error:', error);
+						});
+					</code></pre>
+				</section>
+				<section>
+					<h3>JSON</h3>
+					<p><strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation is a lightweight, text-based data-interchange format that uses human-readable named values and arrays. It’s
+					language-agnostic but closely resembles JavaScript objects, making it easy to serialize data for sending between a
+					server and a client. Typical usage in web apps is to store or transmit structured data (like a list of tasks) as a JSON
+					string, then parse it back into native objects in your code. A simple example: <code>{"task":"Buy milk","done":false}</code>
+					represents a single item in a larger array of tasks.</p>
+				</section>
+				<section>
+					<h3>SSR vs CSR</h3>
+					<p>Both SSR and CSR have their performance tradeoffs, and a mix of SSR and CSR can be used to combine the benefits of both
+					techniques. For example, the server can generate a page skeleton with empty placeholders, and the client can fetch
+					additional data and update the page as needed.</p>
+				</section>
+				<section>
+					<h3>TODO app</h3>
+					<p>A TODO app is a simple tool to capture, organize, and track tasks. It usually lets you add items, mark them complete,
+					and view them in a list, sometimes with due dates, priorities, and categories. Most designs include a minimal input
+					field, a list of tasks with checkboxes, and actions to edit or remove items. The goal is a quick, distraction-free way
+					to stay organized and productive.</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

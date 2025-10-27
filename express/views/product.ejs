@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    <%= title %>
+  </title>
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <ul>
+    <% products.forEach(p=> { %>
+      <li><strong>
+          <%= p.name %>
+        </strong> — $<%= p.price %>
+      </li>
+      <% }) %>
+  </ul>
+  <a href="/">Back Home</a>
+</body>
+
+</html>
