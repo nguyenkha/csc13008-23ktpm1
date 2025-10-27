@@ -1085,6 +1085,18 @@
 					represents a single item in a larger array of tasks.</p>
 				</section>
 				<section>
+					<h3>JSON</h3>
+					<p>In JavaScript, JSON serialization is done using <code>JSON.stringify</code>, and deserialization uses <code>JSON.parse</code></p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const user = { name: "Alex", age: 30 };
+						const jsonString = JSON.stringify(user); // '{"name":"Alex","age":30}'
+					</code></pre>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const jsonString = '{"name":"Alex","age":30}';
+						const user = JSON.parse(jsonString); // { name: "Alex", age: 30 }
+					</code></pre>
+				</section>
+				<section>
 					<h3>SSR vs CSR</h3>
 					<p>Both SSR and CSR have their performance tradeoffs, and a mix of SSR and CSR can be used to combine the benefits of both
 					techniques. For example, the server can generate a page skeleton with empty placeholders, and the client can fetch
