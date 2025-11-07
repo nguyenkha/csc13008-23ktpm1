@@ -198,6 +198,41 @@
 					<small>Source: <a
 							href="https://www.geeksforgeeks.org/reactjs/reactjs-virtual-dom/">https://www.geeksforgeeks.org/reactjs/reactjs-virtual-dom/</a></small>
 				</section>
+				<section>
+					<h3>JSX (JavaScript XML)</h3>
+					<p>
+						React solves this problem with JSX, a syntax that lets us describe the structure of our UI in a concise, HTML-like
+						format while seamlessly integrating JavaScript logic. It's an optional syntax extension for JavaScript that looks like
+						HTML but is compiled into JavaScript. It allows us to write UI code in a way that’s intuitive and closer to how our UI
+						will look in the browser.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const element = <h1>Hello, JSX!</h1>;
+					</code></pre>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const element = React.createElement('h1', null, 'Hello, JSX!');
+					</code></pre>
+				</section>
+				<section>
+					<h3>Rendering lists in JSX</h3>
+					<p>
+						React solves this problem with JSX, a syntax that lets us describe the structure of our UI in a concise, HTML-like
+						format while seamlessly integrating JavaScript logic.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const items = ['React', 'JSX', 'Components'];
+						const elements = (
+						<ul>
+							{items.map((item) => (
+							<li key={item}>{item}</li>
+							))}
+						</ul>
+						);
+						
+						const root = ReactDOM.createRoot(document.getElementById('root'));
+						root.render(elements);
+					</code></pre>
+				</section>
 			</div>
 		</div>
 
