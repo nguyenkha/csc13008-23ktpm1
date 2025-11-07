@@ -40,14 +40,25 @@
 					</ol>
 				</section>
 				<section>
-					<h3>Variable declaration</h3>
+					<h3>Introduction to React</h3>
 					<p>
-						In JavaScript, we use <code>let</code> to declare a variable. Here’s an example:
+						React’s declarative and component-based approach offers solutions to the challenges faced when using plain JavaScript
+						for dynamic UIs.
 					</p>
 					<pre><code class="js" style="word-wrap: break-word;" data-trim>
-						let persons; // declaring a variable
+						const App = () => {
+							const handleClick = () => {
+								alert("Button Clicked!");
+							};
+
+							return (
+								<div>
+									<h1>Welcome to React</h1>
+									<button onClick={handleClick}>Click Me</button>
+								</div>
+							);
+						};
 					</code></pre>
-					<p>Here, the variable <code>persons</code> is declared, but its value is <code>undefined</code>.</p>
 				</section>
 			</div>
 		</div>
