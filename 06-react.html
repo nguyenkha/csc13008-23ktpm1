@@ -233,6 +233,42 @@
 						root.render(elements);
 					</code></pre>
 				</section>
+				<section>
+					<h3><code>createRoot</code></h3>
+					<p>
+						The <code>createRoot</code> method takes one argument: <strong>Where to render</strong> - A DOM node in the HTML document where the React content will be displayed.
+					</p>
+					<p>
+						Once the root container is created, the <code>render</code> method takes: <strong>What to render</strong> - A React element or JSX expression that describes the UI.
+					</p>
+					<p>
+						Typically, React applications render their content inside a single HTML container, often an element with the ID <code>root</code>.
+					</p>
+				</section>
+				<section>
+					<h3><code>createRoot</code></h3>
+					<p>
+						Even though React components are the preferred way to handle dynamic updates, we can manually call the <code>render</code> method
+						multiple times to update content. Each call replaces content in the DOM node.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						let counter = 0;
+						const root = ReactDOM.createRoot(document.getElementById('root'));
+
+						function updateCounter() {
+							root.render(<h1>Counter: {counter}</h1>);
+						}
+
+						// Initial render
+						updateCounter();
+
+						// Simulate updates
+						setInterval(() => {
+							counter++;
+							updateCounter();
+						}, 500);
+					</code></pre>
+				</section>
 			</div>
 		</div>
 

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>List</title>
+  <title>Counter</title>
   <!-- React and ReactDOM via CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
@@ -14,17 +14,22 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    const items = ['React', 'JSX', 'Components'];
-    const elements = (
-      <ul>
-        {items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    );
+    let counter = 0;
 
     const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(elements);
+
+    function updateCounter() {
+      root.render(<h1>Counter: {counter}</h1>);
+    }
+
+    // Initial render
+    updateCounter();
+
+    // Simulate updates
+    setInterval(() => {
+      counter++;
+      updateCounter();
+    }, 500);
   </script>
 </body>
 
