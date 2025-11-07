@@ -60,6 +60,144 @@
 						};
 					</code></pre>
 				</section>
+				<section>
+					<h3>Virtual DOM</h3>
+					<p>
+						The real DOM is the actual DOM tree that the browser renders and displays to the user. This means any
+						changes made to the real DOM are immediately reflected on the user's screen, but direct manipulation can be
+						inefficient
+						for complex or frequent updates due to the performance cost of re-rendering the UI.
+					</p>
+				</section>
+				<section>
+					<h3>Virtual DOM</h3>
+					<h4>1. Initial real DOM</h4>
+					<p>
+						Examine the starting point of our application by viewing the initial HTML structure rendered in the browser. In this
+						step, the initial real DOM rendered by the browser is created.
+					</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<div>
+							<h1>Hello</h1>
+							<h2>React</h2>
+						</div>
+					</code></pre>
+				</section>
+				<section>
+					<h3>Virtual DOM</h3>
+					<h4>2. Initial rendering and virtual DOM creation</h4>
+					<p>
+						In this step, React creates a virtual DOM that mirrors the initial real DOM.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const virtualDOM = {
+							type: 'div',
+							props: {},
+							children: [
+								{
+									type: 'h1',
+									props: {},
+									children: ['Hello'],
+								},
+								{
+									type: 'h2',
+									props: {},
+									children: ['React'],
+								},
+							],
+						};
+					</code></pre>
+				</section>
+				<section>
+					<h3>Virtual DOM</h3>
+					<h4>3. UI update triggered</h4>
+					<p>
+						Next, update the UI by adding a new header element:
+					</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<div>
+							<h1>Hello</h1>
+							<h2>React</h2>
+							<h3>Element</h3>
+						</div>
+					</code></pre>
+				</section>
+				<section>
+					<h3>Virtual DOM</h3>
+					<h4>4. Updated virtual DOM creation</h4>
+					<p>
+						In this step, React creates an updated virtual DOM that includes the new header element.
+					</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const updatedVirtualDOM = {
+							type: 'div',
+							props: {},
+							children: [
+								{
+									type: 'h1',
+									props: {},
+									children: ['Hello'],
+								},
+								{
+									type: 'h2',
+									props: {},
+									children: ['React'],
+								},
+								{
+									type: 'h3',
+									props: {},
+									children: ['Element'],
+								},
+							],
+						};
+					</code></pre>
+				</section>
+				<section>
+					<h3>Virtual DOM</h3>
+					<h4>5. Diffing the virtual DOMs</h4>
+					<p>
+						React now compares the initial and updated virtual DOMs to identify what has changed. React uses it's diffing algorithm
+						to determine the differences between the two virtual DOMs by:
+					</p>
+					<ul>
+						<li>Comparing each node in the initial and updated virtual DOMs.</li>
+						<li>Identify any additions, deletions, or modifications.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Virtual DOM</h3>
+					<h4>6. Identifying changes</h4>
+					<p>
+						After diffing, React determines the specific changes needed. It reviews the findings of the diffing process to see what
+						updates are necessary.
+					</p>
+					<ul>
+						<li>Unchanged nodes: <code>&lt;h1&gt;Hello&lt;/h1&gt;</code> and <code>&lt;h2&gt;React&lt;/h2&gt;</code></li>
+						<li>New node detected: <code>&lt;h3&gt;Element&lt;/h3&gt;</code></li>
+					</ul>
+				</section>
+				<section>
+					<h3>Virtual DOM</h3>
+					<h4>7. Updating the real DOM</h4>
+					<p>
+						React updates the real DOM by applying changes identified during the diffing process, inserting the new element (<code>&lt;h3&gt;Element&lt;/h3&gt;</code>) into the real DOM under the existing <code>&lt;div&gt;</code> element.
+					</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<div>
+							<h1>Hello</h1>
+							<h2>React</h2>
+							<h3>Element</h3>
+						</div>
+					</code></pre>
+				</section>
+				<section>
+					<h3>Virtual DOM</h3>
+					<p>
+						<img src="./img/Browser-DOM-Virtual-DOM.webp">
+					</p>
+					<small>Source: <a
+							href="https://www.geeksforgeeks.org/reactjs/reactjs-virtual-dom/">https://www.geeksforgeeks.org/reactjs/reactjs-virtual-dom/</a></small>
+				</section>
 			</div>
 		</div>
 
