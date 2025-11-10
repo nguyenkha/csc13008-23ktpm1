@@ -3,36 +3,43 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>props</title>
+  <title>Styling</title>
   <!-- React and ReactDOM via CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <!-- Babel compiler for JSX -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .hello {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    function Message(props) {
-      return <p>{props.text}</p>;
-    }
     function App() {
+      const inlineStyle = {
+        backgroundColor: '#282c34',
+        padding: '20px',
+        color: 'white',
+        textAlign: 'center',
+      };
+
       return (
-      <div>
-        <Message text="Hello, World!" />
-        <Message text="Welcome to React." />
-        <Message text="Props are awesome!" />
-      </div>
+        <div>
+          <h1>Styling Component</h1>
+          <div className="hello">Using CSS stylesheets</div>
+          <div style={inlineStyle}>Inline styles</div>
+          <div style={{ color: 'white', fontSize: '18px', backgroundColor: 'navy', fontWeight: 'bold' }}>Inline styles</div>
+        </div>
       );
-    }
+    };
 
     const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    );
+    root.render(<App />);
   </script>
 </body>
 

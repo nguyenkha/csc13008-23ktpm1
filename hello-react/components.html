@@ -14,7 +14,34 @@
 <body>
   <div id="root"></div>
   <!-- Load main script transpiled with Babel -->
-  <script type="text/babel" src="app.js"></script>
+  <script type="text/babel">
+    // Greeting component
+    function Greeting() {
+      return <h1>Hello, World!</h1>;
+    }
+
+    // Footer component
+    function Footer() {
+      return <p>&copy; 2025 CSC13008-23KTPM1</p>;
+    }
+
+    // App
+    function App() {
+      return (
+        <div>
+          <Greeting />
+          <Footer />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  </script>
 </body>
 
 </html>

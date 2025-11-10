@@ -332,6 +332,147 @@
 						}
 					</code></pre>
 				</section>
+				<section>
+					<h3>Passing multiple <code>props</code></h3>
+					<pre><code class="language-jsx" style="word-wrap: break-word;" data-trim>
+						function Message(props) {
+							return &lt;p style={{ color: props.color }}&gt;{props.text}&lt;/p&gt;;
+						}
+						function App() {
+							return (
+							<div>
+								&lt;Message text="Hello, World!" color="red" /&gt;
+								&lt;Message text="Welcome to React." color="green" /&gt;
+								&lt;Message text="Props are awesome!" color="blue" /&gt;
+							</div>
+							);
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>Create the <code>UserCard</code> component</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Styling Components</h3>
+					<p>In React, there are three ways to apply styles to our components:</p>
+					<ul>
+						<li>Using CSS stylesheets</li>
+						<li>Inline styles</li>
+						<li>CSS modules</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Styling Components</h3>
+					<pre><code class="language-jsx" style="word-wrap: break-word;" data-trim>
+						&lt;div className="hello"&gt;Using CSS stylesheets &lt;/div&gt;
+					</code></pre>
+				</section>
+				<section>
+					<h3>Styling Components</h3>
+					<pre><code class="language-jsx" style="word-wrap: break-word;" data-trim>
+						const inlineStyle = {
+							backgroundColor: '#282c34',
+							padding: '20px',
+							color: 'white',
+							textAlign: 'center',
+						};
+						return (
+						<div>
+							<h1>Styling Component</h1>
+							&lt;div style={inlineStyle}&gt;Inline styles&lt;/div&gt;
+							&lt;div style={{ color: 'white' , fontSize: '18px' , backgroundColor: 'navy' , fontWeight: 'bold' }}&gt;Inline styles&lt;/div&gt;
+						</div>
+						);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Handling Events</h3>
+					<p>React handles events similarly to how events are handled in regular HTML and JavaScript, but with some syntactical
+					differences</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						<button onclick="handleClick()">Click Me</button>
+					</code></pre>
+					<p>Use <code>camelCase</code> (e.g., <code>onClick</code>, <code>onChange</code>) and pass a function reference as the event handler, not a <code>string</code>.</p>
+					<pre><code class="html" style="word-wrap: break-word;" data-trim>
+						&lt;button onClick={handleClick}&gt;Click Me&lt;/button&gt;
+					</code></pre>
+				</section>
+				<section>
+					<h3>Handling Events</h3>
+					<ul>
+						<li><code>onClick</code>: Triggered when an element is clicked.</li>
+						<li><code>onChange</code>: Triggered when the value of an input element changes.</li>
+						<li><code>onSubmit</code>: Triggered when a form is submitted.</li>
+						<li><code>onMouseOver</code>: Triggered when the mouse pointer moves over an element.</li>
+						<li><code>onFocus</code> / <code>onBlur</code>: Triggered when an element gains or loses focus.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Handling Events</h3>
+					<p>To pass arguments to our event handlers, wrapping the event handler in an arrow
+					function.</p>
+					<pre><code class="language-jsx" style="word-wrap: break-word;" data-trim>
+						function App() {
+							function handleClick(message) {
+								alert(message);
+							}
+
+							return (
+							<div>
+								&lt;button onClick={() => handleClick('Button clicked!')}&gt;Click Me&lt;/button&gt;
+							</div>
+							);
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Handling Events</h3>
+					<p>Forms are integral to web applications. React simplifies handling form inputs and submissions.</p>
+					<pre><code class="language-jsx" style="word-wrap: break-word;" data-trim>
+						function App() {
+							function handleChange(event) {
+								console.log('Input value:', event.target.value);
+							}
+
+							return (
+							<div>
+								&lt;input
+									type="text"
+									onChange={handleChange}         
+									placeholder="Type something..."
+								/&gt;
+							</div>
+							);
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Handling Events</h3>
+					<p>Sometimes, we may need to prevent the default action of an event, such as preventing a form from submitting and
+					refreshing the page.</p>
+					<pre><code class="language-jsx" style="word-wrap: break-word;" data-trim>
+						function App() {
+							function handleSubmit(event) {
+								event.preventDefault();       
+								alert('Form submitted!');
+							}
+
+							return (
+							&lt;form onSubmit={handleSubmit}&gt;
+								&lt;input type="text" placeholder="Enter your name" /&gt;
+								<button type="submit">Submit</button>
+							&lt;/form&gt;
+							);
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Handling Events</h3>
+					<p>We can pass event handlers to child components via props, promoting modularity and reusability.</p>
+				</section>
 			</div>
 		</div>
 

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>props</title>
+  <title>Events</title>
   <!-- React and ReactDOM via CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
@@ -13,17 +13,21 @@
 
 <body>
   <div id="root"></div>
+  <!-- Load main script transpiled with Babel -->
   <script type="text/babel">
-    function Message(props) {
-      return <p>{props.text}</p>;
-    }
     function App() {
+      function handleChange(event) {
+        console.log('Input value:', event.target.value);
+      }
+
       return (
-      <div>
-        <Message text="Hello, World!" />
-        <Message text="Welcome to React." />
-        <Message text="Props are awesome!" />
-      </div>
+        <div>
+          <input
+            type="text"
+            onChange={handleChange}
+            placeholder="Type something..."
+          />
+        </div>
       );
     }
 
