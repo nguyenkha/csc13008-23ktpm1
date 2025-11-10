@@ -275,6 +275,63 @@
 						<li>Display current date and time dynamically</li>
 					</ul>
 				</section>
+				<section>
+					<h3>Component</h3>
+					<p><img width="70%" src="./img/react-components.svg"></p>
+				</section>
+				<section>
+					<h3>Component</h3>
+					<pre><code class="language-jsx" style="word-wrap: break-word;" data-trim>
+						// Greeting component
+						function Greeting() {
+							return <h1>Hello, World!</h1>;
+						}
+
+						// Footer component
+						function Footer() {
+							return <p>&copy; 2025 CSC13008-23KTPM1</p>;
+						}
+
+						// App
+						function App() {
+							return (
+								<div>
+									&lt;Greeting/&gt;
+									&lt;Footer/&gt;
+								</div>
+							);
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3><code>StrictMode</code></h3>
+					<p>React <code>StrictMode</code> is a development-only tool that helps identify potential problems and enforce best practices in React
+					applications. It does not affect the UI or production build but enables additional checks and warnings to catch common
+					bugs and improve code quality early.</p>
+				</section>
+				<section>
+					<h3>Passing <code>props</code> to Components</h3>
+					<p><img src="./img/react-props.svg" width="75%"></p>
+				</section>
+				<section>
+					<h3>Passing <code>props</code> to Components</h3>
+					<p><code>props</code> (short for “properties”) are a mechanism for passing data from a parent component to a child component. They allow
+					components to be dynamic and reusable by enabling them to receive input data and render accordingly.</p>
+					<pre><code class="language-jsx" style="word-wrap: break-word;" data-trim>
+						function Message(props) {
+							return <p>{props.text}</p>;
+						}
+						function App() {
+							return (
+							<div>
+								&lt;Message text="Hello, World!" /&gt;
+								&lt;Message text="Welcome to React." /&gt;
+								&lt;Message text="Props are awesome!" /&gt;
+							</div>
+							);
+						}
+					</code></pre>
+				</section>
 			</div>
 		</div>
 
