@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Search useState and useEffect</title>
+  <!-- React and ReactDOM via CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel compiler for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    function SearchComponent() {
+      const [query, setQuery] = React.useState(''); // Tracks user input
+      const [items, setItems] = React.useState([]); // Tracks fetched items
+
+      React.useEffect(() => {
+        // Simulate fetching data
+        const fetchedItems = [
+          { id: 1, name: 'React' },
+          { id: 2, name: 'Vue' },
+          { id: 3, name: 'Angular' },
+          { id: 4, name: 'Svelte' },
+        ];
+        setItems(fetchedItems);
+      }, []); // Runs only once on mo
+
+      const filteredItems = items.filter(item =>
+        item.name.toLowerCase().includes(query.toLowerCase()) // Filters items based on query
+      );
+
+
+      return (
+        <div>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)} // Updates query on input change
+          />
+          <ul>
+            {filteredItems.map(item => (
+              <li key={item.id}>{item.name}</li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+
+    // App
+    function App() {
+      return (
+        <div>
+          <SearchComponent />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  </script>
+</body>
+
+</html>

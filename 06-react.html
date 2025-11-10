@@ -473,6 +473,160 @@
 					<h3>Handling Events</h3>
 					<p>We can pass event handlers to child components via props, promoting modularity and reusability.</p>
 				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>Render TODO using React</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Hooks</h3>
+					<p>React hooks are special functions that let us use state and other React features without writing class components. The
+					primary goal is to simplify how we manage data (state) and tasks like fetching data, updating the browser title, or
+					running timers (effects) inside the UI components. By using hooks, our functional components can become more powerful
+					while remaining concise and easy to read.</p>
+				</section>
+				<section>
+					<h3>Hooks</h3>
+					<p><img width="75%" src="./img/react-hooks.jpg" ></p>
+					<small>Source: <a href="https://www.youtube.com/watch?v=LOH1l-MP_9k">https://www.youtube.com/watch?v=LOH1l-MP_9k</a></small>
+				</section>
+				<section>
+					<h3>The <code>useState</code> hook</h3>
+					<p>By adding <code>useState</code>, the component now maintains its own data and reacts to user actions, transforming from a static,
+					<em>“read-only”</em> UI into a dynamic, <em>“interactive”</em> one. All this is done without using class components.</p>
+					<pre><code class="language-jsx" style="word-wrap: break-word;" data-trim>
+						function InteractiveGreeting() {
+							const [message, setMessage] = React.useState("Hello, welcome to our React application!");
+							
+							function handleClick() {
+								setMessage("Thanks for clicking, have a great day!");
+							}
+							
+							return (
+							<div>
+								<h1>{message}</h1>
+								&lt;button onClick={handleClick}&gt;Click me&lt;/button&gt;
+							</div>
+							);
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>The <code>useState</code> hook</h3>
+					<p><img width="75%" src="./img/react-use-state.webp"></p>
+					<small>Source: <a
+							href="https://www.kaashivinfotech.com/blog/usestate-in-react-js-guide-examples/">https://www.kaashivinfotech.com/blog/usestate-in-react-js-guide-examples/</a></small>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>Click counter</li>
+						<li>Toggle text visibility</li>
+						<li>Real-time character counter for user input</li>
+						<li>Change text color on button clicks</li>
+					</ul>
+				</section>
+				<section>
+					<h3>The <code>useEffect</code> hook</h3>
+					<p>The <code>useEffect</code> hook is used for performing side effects in our components. It runs after the component renders and can
+					optionally re-run when specific values (called dependencies) change.</p>
+					<pre><code class="language-jsx" style="word-wrap: break-word;" data-trim>
+						React.useEffect(() => {
+							console.log(`Count updated: ${count}`);
+						}, [count]); // 'count' is a dependency
+					</code></pre>
+				</section>
+				<section>
+					<h3>The <code>useEffect</code> hook</h3>
+					<p>Dependencies are the values or state variables that, when changed, trigger the re-execution of the effect function
+					provided to <code>useEffect</code>. These values are listed in an array as the second parameter of <code>useEffect</code>.</p>
+					<p>Dependencies ensure that the useEffect logic is tied only to the values it depends on, avoiding unnecessary re-runs and
+					optimizing performance. Incorrect dependencies or missing them altogether can lead to bugs like infinite loops or stale
+					values.</p>
+				</section>
+				<section>
+					<h3>The <code>useEffect</code> hook</h3>
+					<p>The empty dependency array (<code>[]</code>) ensures the effect runs only after the first render (on mount) and does not re-run
+					during subsequent renders.</p>
+					<pre><code class="language-jsx" style="word-wrap: break-word;" data-trim>
+						React.useEffect(() => {
+							console.log("Component mounted");
+						}, []);
+					</code></pre>
+				</section>
+				<section>
+					<h3>The <code>useEffect</code> hook</h3>
+					<p><img width="50%" src="./img/react-use-effect.svg"></p>
+					<small>Source: <a
+							href="https://dmitripavlutin.com/react-useeffect-explanation/">https://dmitripavlutin.com/react-useeffect-explanation/</a></small>
+				</section>
+				<section>
+					<h3>The <code>useEffect</code> hook</h3>
+					<p>Fetching data is one of the most common side effects in applications.</p>
+					<pre><code class="language-jsx" style="word-wrap: break-word;" data-trim>
+						function UserList() {
+							const [users, setUsers] = React.useState([]);
+							const [loading, setLoading] = React.useState(true);
+							
+							React.useEffect(() => {
+								fetch('https://jsonplaceholder.typicode.com/users')
+								.then(response => response.json())
+								.then(data => {
+									setUsers(data);
+									setLoading(false);
+								});
+							}, []);
+							
+							return (
+							<div>
+								{loading ? (
+								<p>Loading...</p>
+								) : (
+								<ul>
+									{users.map(user => (
+									&lt;li key={user.id}&gt;{user.name}&lt;/li&gt;
+									))}
+								</ul>
+								)}
+							</div>
+							);
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>Fetch and display a list of posts</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Combining <code>useState</code> and <code>useEffect</code> for Dynamic Interactions</h3>
+					<p>In real-world applications, components often need to manage their internal state and respond to external factors like
+					user input, fetched data, or timers. By combining <code>useState</code> and <code>useEffect</code>, we can create fully interactive, dynamic
+					components that manage both state and side effects seamlessly.</p>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>We need to build a dynamic search component that allows users to type a query into an input field and see a filtered
+						list of items in real time. Additionally, the items should be fetched dynamically when the component loads, simulating a
+						common feature in modern applications like product or user searches.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Group Assignment - GA04</h3>
+					<ul>
+						<li>TODO app with React <code>useState</code> and <code>useEffect</code>: Add new task, Mark/Unmark as done, Remove task</li>
+						<li>Scoring:
+							<ul>
+								<li>Tailwin and Responsive layout: 2.0</li>
+								<li>Homepage, TODO list page (API): 2.0</li>
+								<li>Add/Mark/Unmark/Remove (API): 6.0</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
 			</div>
 		</div>
 
