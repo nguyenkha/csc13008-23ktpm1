@@ -607,6 +607,35 @@
 					components that manage both state and side effects seamlessly.</p>
 				</section>
 				<section>
+					<h3>vite <code>/vit/</code></h3>
+					<p>Vite  is a build tool that aims to provide a faster and leaner development experience for modern web projects. It consists of two major parts:</p>
+					<ul>
+						<li>A dev server that provides rich feature enhancements over native ES modules, for example extremely fast Hot Module
+						Replacement (HMR).</li>
+						<li>A build command that bundles your code with Rollup, pre-configured to output highly optimized static assets for
+						production.</li>
+					</ul>
+					<pre><code class="bash" style="word-wrap: break-word;" data-trim>
+						npm create vite@latest
+					</code></pre>
+				</section>
+				<section>
+					<h3>TypeScript</h3>
+					<p>TypeScript is JavaScript with syntax for types.</p>
+					<ul>
+						<li>Adds additional syntax to JavaScript to support a tighter integration with your editor..</li>
+						<li>Converts to JavaScript, which runs anywhere JavaScript runs: In a browser, on Node.js, Deno, Bun and in
+						your apps.</li>
+						<li>Understands JavaScript and uses type inference to give you great tooling without additional code.</li>
+					</ul>
+					<pre><code class="typescript" style="word-wrap: break-word;" data-trim>
+						interface User {
+							name: string;
+							id: number;
+						}
+					</code></pre>
+				</section>
+				<section>
 					<h3>Exercise</h3>
 					<ul>
 						<li>We need to build a dynamic search component that allows users to type a query into an input field and see a filtered
@@ -620,7 +649,7 @@
 						<li>TODO app with React <code>useState</code> and <code>useEffect</code>: Add new task, Mark/Unmark as done, Remove task</li>
 						<li>Scoring:
 							<ul>
-								<li>Tailwin and Responsive layout: 2.0</li>
+								<li>Tailwind and Responsive layout: 2.0</li>
 								<li>Homepage, TODO list page (API): 2.0</li>
 								<li>Add/Mark/Unmark/Remove (API): 6.0</li>
 							</ul>
