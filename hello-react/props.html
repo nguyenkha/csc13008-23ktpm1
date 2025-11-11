@@ -15,15 +15,15 @@
   <div id="root"></div>
   <script type="text/babel">
     function Message(props) {
-      return <p>{props.text}</p>;
+      return <p style={{ color: props.color }}>{props.text}</p>;
     }
     function App() {
       return (
-      <div>
-        <Message text="Hello, World!" />
-        <Message text="Welcome to React." />
-        <Message text="Props are awesome!" />
-      </div>
+        <div>
+          <Message text="Hello, World!" color="red" />
+          <Message text="Welcome to React." color="green" />
+          <Message text="Props are awesome!" color="blue" />
+        </div>
       );
     }
 

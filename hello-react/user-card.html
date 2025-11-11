@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>UserCard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- React and ReactDOM via CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel compiler for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const users = [
+      { id: 1, name: 'John Doe', email: 'john.doe@example.com', age: 30 },
+      { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com', age: 25 },
+      { id: 3, name: 'Alice Johnson', email: 'alice.johnson@example.com', age: 28 },
+    ];
+
+    const UserCard = ({ name, email, age }) => {
+      return (
+        <div className="max-w-sm mx-auto bg-white shadow-md rounded-lg overflow-hidden p-6">
+          <h2 className="text-xl font-semibold text-gray-800">{name}</h2>
+          <p className="text-gray-600">{email}</p>
+          <p className="text-gray-600 mt-2">Age: {age}</p>
+        </div>
+      );
+    };
+
+    const App = () => {
+      return (
+        <div>
+          {users.map((user) => (
+            <UserCard
+              key={user.id}
+              {...user}
+            />
+          ))}
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+
+</html>

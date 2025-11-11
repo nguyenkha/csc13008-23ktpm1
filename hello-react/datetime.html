@@ -14,20 +14,23 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString(); // Formats the date as per locale
-    const formattedTime = currentDate.toLocaleTimeString(); // Formats the time as per locale
-    const element = (
-      <>
-        <h1>Current Date and Time</h1>
-        <h2>Today’s date is:  {formattedDate}</h2>
-        <p>The time now is: {formattedTime}</p>
-      </>
-    );
-
     // Create a root container and render the JSX element
     const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(element);
+    function updateDatetime() {
+      const currentDate = new Date();
+      const formattedDate = currentDate.toLocaleDateString(); // Formats the date as per locale
+      const formattedTime = currentDate.toLocaleTimeString(); // Formats the time as per locale
+
+      root.render(
+        <div>
+          <h1>Current Date and Time</h1>
+          <h2>Today’s date is: {formattedDate}</h2>
+          <p>The time now is: {formattedTime}</p>
+        </div>
+      );
+    }
+    updateDatetime();
+    setInterval(updateDatetime, 500);
   </script>
 </body>
 
