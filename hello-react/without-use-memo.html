@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>useMemo</title>
+  <!-- React and ReactDOM via CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel compiler for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    function ExpensiveCalculationComponent() {
+      const [count, setCount] = React.useState(0);
+      const [text, setText] = React.useState('');
+
+      // Function for expensive calculation
+      const calculateExpensiveValue = () => {
+        console.log('Running expensive calculation...');
+        for (let i = 1; i < 10000000; i++) {}
+        return count * 1000; 
+      };
+        
+      const expensiveCalculation = calculateExpensiveValue();
+        
+      return (
+        <div>
+          <h1>Expensive calculation result: {expensiveCalculation}</h1>
+          <button onClick={() => setCount(count + 1)}>Increment count</button>
+          <input
+            type="text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder="Type something"
+          />
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <ExpensiveCalculationComponent />
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  </script>
+</body>
+
+</html>

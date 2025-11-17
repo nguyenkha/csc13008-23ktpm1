@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>useRef</title>
+  <!-- React and ReactDOM via CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel compiler for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    function InputFocus() {
+      const inputRef = React.useRef(null); // Create a ref object for the second input field
+
+      // Handler for focusing the second input field using useRef
+      const handleFocusWithRef = () => {
+        inputRef.current.focus(); // Access and focus the input element
+      };
+
+      return (
+        <div>
+          <h3>With useRef</h3>
+          <input ref={inputRef} type="text" placeholder="Enter text here" />
+          <button onClick={handleFocusWithRef}>Focus input</button>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <InputFocus />
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  </script>
+</body>
+
+</html>

@@ -656,6 +656,279 @@
 						</li>
 					</ul>
 				</section>
+				<section>
+					<h3>Prop drilling</h3>
+					<p>Prop drilling is a situation in React where data (props) is passed from a parent component to deeply nested child
+					components through intermediate components that don’t need the data.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					function App() {
+						const user = { name: 'John Doe', email: 'john@example.com' };
+
+						return &lt;Parent user={user} /&gt;;
+					}
+
+					function Parent({ user }) {
+						return &lt;Child user={user} /&gt;;
+					}
+
+					function Child({ user }) {
+						return &lt;GrandChild user={user} /&gt;;
+					}
+
+					function GrandChild({ user }) {
+						return <p>User Name: {user.name}</p>;
+					}
+					</code></pre>
+				</section>
+				<section>
+					<h3>The <code>useContext</code> hook</h3>
+					<p>It allows us to create and provide data across components without prop drilling.
+					It provides a way to pass data down the component tree without manually passing props at every level.</p>
+					<img src="./img/react-use-context.png" width="50%">
+					<small>Source: <a
+							href="https://albertprofe.dev/reactjs/reactjs-hook-context.html">https://dmitripavlutin.com/react-useeffect-explanation/</a></small>
+				</section>
+				<section>
+					<h3>The <code>useContext</code> hook</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					const UserContext = React.createContext();
+
+					function App() {
+						const user = { name: 'John Doe' };
+
+						return (
+							&lt;UserContext.Provider value={user}&gt;
+								&lt;GrandChild /&gt;
+							&lt;/UserContext.Provider&gt;
+						);
+					}
+
+					function GrandChild() {
+						const user = React.useContext(UserContext);
+						return <p>User Name: {user.name}</p>;
+					}
+					</code></pre>
+				</section>
+				<section>
+					<h3>The <code>useContext</code> hook</h3>
+					<p>Let’s build a theming system where components dynamically adjust their styles (light or dark) based on a shared theme
+					value. By using the useContext hook, we will efficiently share the theme across components without passing props
+					manually.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					export const ThemeContext = createContext(); // Create a context
+					</code></pre>
+				</section>
+				<section>
+					<h3>The <code>useContext</code> hook</h3>
+					<p>Consuming context data with <code>useContext</code></p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					function ThemedButton() {
+						const theme = useContext(ThemeContext); // Access the current theme
+
+						const buttonStyle = {
+							backgroundColor: theme === 'dark' ? '#333' : '#fff',
+							color: theme === 'dark' ? '#fff' : '#333',
+							padding: '10px 20px',
+							border: 'none',
+							cursor: 'pointer',
+						};
+
+						const handleClick = () => {
+							alert(`Button clicked in ${theme} mode`);
+						};
+
+						return &gt;button style={buttonStyle} onClick={handleClick}&lt;Click me&gt;/button&lt;;
+					}
+
+					export default ThemedButton;
+					</code></pre>
+				</section>
+				<section>
+					<h3>The <code>useContext</code> hook</h3>
+					<p>Once the context and the <code>ThemedButton</code> component are ready, we can provide the shared data (theme) to the <code>ThemedButton</code>
+					using the <code>ThemeContext.Provider</code>.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					function App() {
+						const theme = 'dark'; // Current theme
+
+						return (
+							<ThemeContext.Provider value={theme}>
+								<div>
+									<h1>Welcome to the Themed App!</h1>
+									<ThemedButton />
+								</div>
+							</ThemeContext.Provider>
+						);
+					}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>Language toggle</li>
+					</ul>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					const [language, setLanguage] = useState('en'); // Current language
+					// Manages the language state (en for English, vi for Vietnamese)
+					const toggleLanguage = () =>
+						setLanguage((prevLanguage) => (prevLanguage === 'en' ? 'vi' : 'en'));
+
+					return (
+					// Provides the language value to the LanguageContext.Provider
+					&lt;LanguageContext.Provider value={language}&gt;
+						<div>
+							&lt;Greeting /&gt;
+							&lt;button onClick={toggleLanguage}&gt;Toggle language&lt;/button&gt;
+						</div>
+					&lt;/LanguageContext.Provider&gt;
+					);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>Theme and language combined</li>
+						<li>User authentication</li>
+					</ul>
+				</section>
+				<section>
+					<h3>The <code>useRef</code> hook</h3>
+					<p>The <code>useRef</code> hook serves multiple purposes in managing data and interacting with the DOM. It provides a way to
+					create a mutable reference, which can be used for two primary purposes:</p>
+					<ul>
+						<li>Accessing and manipulating DOM elements</li>
+						<li>Storing persistent mutable values</li>
+					</ul>
+				</section>
+				<section>
+					<h3>The <code>useRef</code> hook</h3>
+					<ul>
+						<li><strong>Mutable</strong>: The value stored in useRef can be updated directly via the current property.</li>
+						<li><strong>Persistent across renders</strong>: Unlike variables declared inside a function, a <code>useRef</code> value is preserved between renders, making it suitable for
+						managing non-UI data.</li>
+						<li><strong>No re-render trigger</strong>: Modifying the <code>useRef</code> value does not affect the rendering cycle of the component.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>The <code>useRef</code> hook</h3>
+					<p><code>useRef</code> is commonly used to access and manipulate DOM elements directly.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					function InputFocus() {
+						const inputRef = React.useRef(null); // Create a ref object for the second input field
+
+						// Handler for focusing the second input field using useRef
+						const handleFocusWithRef = () => {
+							inputRef.current.focus(); // Access and focus the input element
+						};
+
+						return (
+							<div>
+								<h3>With useRef</h3>
+								<input ref={inputRef} type="text" placeholder="Enter text here" />
+								&lt;button onClick={handleFocusWithRef}&gt;Focus input&lt;/button&gt;
+							</div>
+						);
+					}
+					</code></pre>
+				</section>
+				<section>
+					<h3>The <code>useRef</code> hook</h3>
+					<p><code>useRef</code> is also useful for storing mutable values that need to persist across renders but should not trigger a re-render
+					when updated: a click counter or a timer.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					function ClickCounter() {
+						const countRef = React.useRef(0); // Mutable value
+						const [renderCount, setRenderCount] = useState(0);
+
+						const incrementCounter = () => {
+							countRef.current += 1; // Increment the ref value
+							console.log(`Clicks: ${countRef.current}`);
+						};
+
+						return (
+							<div>
+								<p>Rendered {renderCount} times</p>
+								&lt;button onClick={incrementCounter}&gt;Increment counter&lt;/button&gt;
+								&lt;button onClick={() => setRenderCount(renderCount + 1)}&gt;Re-render&lt;/button&gt;
+							</div>
+						);
+					}
+					</code></pre>
+				</section>
+				<section>
+					<h3>The <code>useRef</code> hook</h3>
+					<p>useRef can be used to persist the previous value of a state variable, making it useful for scenarios need to
+					compare the current state with its previous value or perform calculations based on it.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					function PreviousValue() {
+						const [count, setCount] = React.useState(0);
+						const prevCountRef = React.useRef();
+
+						React.useEffect(() => {
+							prevCountRef.current = count; // Update ref with the current state after rendering
+						});
+
+						return (
+							<div>
+								<p>Current count: {count}</p>
+								<p>Previous count: {prevCountRef.current}</p>
+								&lt;button onClick={() => setCount(count + 1)}&gt;Increment&lt;/button&gt;
+							</div>
+						);
+					}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<p>Build a timer component that increments a counter every second using <code>useRef</code> to track elapsed time. The timer will have
+					three buttons to control its behavior: Start, Pause, and Reset. You will use the <code>useRef</code> hook to efficiently track the
+					timer's interval without causing unnecessary re-renders.</p>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<p>Create a page with multiple sections and a “Scroll to top” button. When clicked, this button will take the user back to
+					the top of the page smoothly.</p>
+				</section>
+				<section>
+					<h3>The <code>useMemo</code> hook</h3>
+					<p>The <code>useMemo</code> hook is used to optimize the performance of our application by memoizing the result of a computation. It
+					returns a memoized value that only recalculates when one of its dependencies changes. This avoids unnecessary
+					recalculations on every render, making our application more efficient.</p>
+				</section>
+				<section>
+					<h3>The <code>useMemo</code> hook</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					const [count, setCount] = React.useState(0);
+					// Memoizing the expensive computation
+					const expensiveCalculation = React.useMemo(() => {
+						console.log('Running expensive calculation...');
+						return count * 1000;
+					}, [count]);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<p>Create a React component that filters a list of programming languages based on user input in a search box. Users will
+					input a search term in the text box, and your code should dynamically filter and display only the programming languages
+					that match the search term. Optimize the filtering logic using <code>useMemo</code>.</p>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<p>Create a React component to calculate fibonacci numbers. Users will input a number in the text box, and your code should
+					compute and display the fibonacci number for that input using an optimized recursive function. Optimize the calculation
+					using <code>useMemo</code>.</p>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<p>You are tasked with creating an inventory management system that allows users to efficiently manage products and
+					dynamically switch between light and dark themes. The system should include the following features:</p>
+					<ul>
+						<li><strong>Add products</strong>: name, quantity, and price</li>
+						<li><strong>Search products</strong>: by name</li>
+						<li><strong>Calculate total inventory value</strong>: total value of all products (<code>quantity* price</code>)</li>
+						<li><strong>Theme toggle</strong>: light and dark themes</li>
+					</ul>
+				</section>
 			</div>
 		</div>
 

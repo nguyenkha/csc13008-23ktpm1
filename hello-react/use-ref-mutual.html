@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>useRef</title>
+  <!-- React and ReactDOM via CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel compiler for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    function ClickCounter() {
+      const countRef = React.useRef(0); // Mutable value
+      const [renderCount, setRenderCount] = React.useState(0);
+
+      const incrementCounter = () => {
+        countRef.current += 1; // Increment the ref value
+        console.log(`Clicks: ${countRef.current}`);
+      };
+
+      return (
+        <div>
+          <p>Rendered {renderCount} times</p>
+          <button onClick={incrementCounter}>Increment counter</button>
+          <button onClick={() => setRenderCount(renderCount + 1)}>Re-render</button>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <ClickCounter />
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  </script>
+</body>
+
+</html>
