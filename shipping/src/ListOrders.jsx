@@ -36,7 +36,7 @@ export default function ListOrders({ setCurrentPage }) {
           {orders.map((o) => (
             <li className="border p-4 rounded shadow hover:shadow-lg transition">
               <p><span className="font-semibold">Order ID:</span> #{o.id}</p>
-              {/* <p><span className="font-semibold">Recipient:</span> {o.recipient}</p> */}
+              <p><span className="font-semibold">Recipient:</span> {o.recipient}</p>
               <p><span className="font-semibold">Address:</span> {o.house_number} {o.street}, {o.ward.name_with_type}, {o.province.name_with_type}</p>
             </li>
           ))}
