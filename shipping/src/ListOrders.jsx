@@ -1,11 +1,13 @@
 import { useState, useEffect, useContext } from 'react'
+import { ClipLoader } from 'react-spinners'
 import ApiContext from './ApiContext'
 
 export default function ListOrders({ setCurrentPage }) {
   // Load API url and key from context
   const api = useContext(ApiContext);
-  
+
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch data with province and ward pre-load
@@ -15,6 +17,7 @@ export default function ListOrders({ setCurrentPage }) {
       },
     }).then(async (result) => {
       if (result.status === 200) {
+        setLoading(false);
         setOrders(await result.json());
       } else {
         console.error('Cannot load order data:', result);
@@ -26,11 +29,14 @@ export default function ListOrders({ setCurrentPage }) {
     <div className="max-w-3xl mx-auto p-4 bg-white shadow-md rounded-md space-y-6">
       <div className="max-w-3xl mx-auto p-4">
         <h2 className="text-2xl font-bold mb-4">Order List</h2>
+        <div className="text-center">
+          <ClipLoader color="#000000" loading={loading} size={50} />
+        </div>
         <ul className="space-y-4">
           {orders.map((o) => (
             <li className="border p-4 rounded shadow hover:shadow-lg transition">
               <p><span className="font-semibold">Order ID:</span> #{o.id}</p>
-              <p><span className="font-semibold">Recipient:</span> {o.recipient}</p>
+              {/* <p><span className="font-semibold">Recipient:</span> {o.recipient}</p> */}
               <p><span className="font-semibold">Address:</span> {o.house_number} {o.street}, {o.ward.name_with_type}, {o.province.name_with_type}</p>
             </li>
           ))}
