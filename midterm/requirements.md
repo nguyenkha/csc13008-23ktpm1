@@ -7,6 +7,7 @@
 - Thời gian làm bài: **90 phút**
 - Thời điểm đóng link nộp bài: **5 phút** sau khi kết thúc thời gian làm bài
 - Nộp bảng điểm tự đánh giá chuẩn bị vấn đáp
+- Nộp bài trên moodle đúng thời hạn, không chấp nhận hình thức khác
 
 ### Quy tắc nộp video ghi màn hình quá trình làm bài
 
