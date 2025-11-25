@@ -57,4 +57,4 @@ Sinh viên xây dựng ứng dụng Web Client-side render có các chức năng
   - Dùng chatgpt / claude / gemini / grok / ... để hỏi những vấn đề liên quan đến bài thi
   - Dùng Github Copilot hoặc AI Editor (như Cursor/Antigravity) tất cả các mode (agent, ask, edit, inline chat)
 - Sinh viên **được phép sử dụng tính năng suggestion** (tab) của editor để làm bài
-- Sinh viên **được phép sử dụng các hình ảnh khóa học/spinner, tài liệu kỹ thuật, Google để tìm kiếm thông tin đơn thuần** (với loại trừ AI)
+- Sinh viên **được phép sử dụng các hình ảnh minh họa cho dữ liệu, tài liệu kỹ thuật, Google để tìm kiếm thông tin đơn thuần** (với loại trừ AI)
