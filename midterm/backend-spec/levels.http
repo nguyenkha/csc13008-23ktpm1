@@ -1,0 +1,5 @@
+### Fetch levels from Supabase REST API
+GET https://yryeegjazuzurmepnkbg.supabase.co/rest/v1/levels
+apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlyeWVlZ2phenV6dXJtZXBua2JnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NDA0NjEsImV4cCI6MjA3OTExNjQ2MX0.yMJVAg6paDX06FGJU1MxZFPySk8Vo4a6iF57qd-hOSg
+Content-Type: application/json
+

@@ -1,0 +1,34 @@
+### Fetch all courses without pagination from Supabase REST API
+GET https://yryeegjazuzurmepnkbg.supabase.co/rest/v1/courses?select=*,instructors(*),levels(*)
+apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlyeWVlZ2phenV6dXJtZXBua2JnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NDA0NjEsImV4cCI6MjA3OTExNjQ2MX0.yMJVAg6paDX06FGJU1MxZFPySk8Vo4a6iF57qd-hOSg
+Content-Type: application/json
+
+### Fetch all courses with pagination from Supabase REST API
+GET https://yryeegjazuzurmepnkbg.supabase.co/rest/v1/courses?select=*,instructors(*),levels(*)&limit=5&offset=0
+apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlyeWVlZ2phenV6dXJtZXBua2JnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NDA0NjEsImV4cCI6MjA3OTExNjQ2MX0.yMJVAg6paDX06FGJU1MxZFPySk8Vo4a6iF57qd-hOSg
+Content-Type: application/json
+
+### Fetch total number of courses from Supabase REST API
+GET https://yryeegjazuzurmepnkbg.supabase.co/rest/v1/courses?select=course_id.count()
+apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlyeWVlZ2phenV6dXJtZXBua2JnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NDA0NjEsImV4cCI6MjA3OTExNjQ2MX0.yMJVAg6paDX06FGJU1MxZFPySk8Vo4a6iF57qd-hOSg
+Content-Type: application/json
+
+### Create a new course via Supabase REST API
+POST https://yryeegjazuzurmepnkbg.supabase.co/rest/v1/courses
+apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlyeWVlZ2phenV6dXJtZXBua2JnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NDA0NjEsImV4cCI6MjA3OTExNjQ2MX0.yMJVAg6paDX06FGJU1MxZFPySk8Vo4a6iF57qd-hOSg
+Content-Type: application/json
+
+{
+  "title": "test",
+  "description": "test",
+  "image_url": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
+  "instructor_id": 1,
+  "level_id": 1,
+  "rating": 4.6,
+  "total_reviews": 524,
+  "total_hours": 5.0,
+  "total_lectures": 48,
+  "current_price": 199000,
+  "original_price": 499000,
+  "is_bestseller": true
+}
