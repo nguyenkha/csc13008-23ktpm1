@@ -2,7 +2,7 @@
 
 ### Quy tắc nộp bài
 
-- Tên file: **&lt;MSSV&gt;.zip** (có thể dùng định dạng file nén khác)
+- Tên file: **MSSV.zip** (có thể dùng định dạng file nén khác)
 - Không nộp `node_modules`
 - Thời gian làm bài: **90 phút**
 - Thời điểm đóng link nộp bài: **5 phút** sau khi kết thúc thời gian làm bài
