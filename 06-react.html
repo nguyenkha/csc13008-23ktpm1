@@ -949,6 +949,312 @@
 						</li>
 					</ul>
 				</section>
+				<section>
+					<h3>Router</h3>
+					<p>React applications often require navigation between different pages or views, such as “Home,” “About,” “Projects,” or
+					“Contact” pages. Traditionally, this is done by manually managing state or creating multiple HTML files.</p>
+				</section>
+				<section>
+					<h3>A portfolio application</h3>
+					<p>We need to build a portfolio website with the following pages:</p>
+					<ul>
+						<li>Home: A welcome page.</li>
+						<li>About: Information about the individual.</li>
+						<li>Projects: A showcase of completed projects.</li>
+						<li>Contact: A page to get in touch.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>A portfolio application</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					const App = () => {
+						const [currentPage, setCurrentPage] = React.useState('Home');
+
+						const renderPage = () => {
+							switch (currentPage) {
+								case 'Home':
+									return <h1>Welcome to my portfolio</h1>;
+								case 'About':
+									return <h1>About me</h1>;
+								case 'Projects':
+									return <h1>My projects</h1>;
+								case 'Contact':
+									return <h1>Contact me</h1>;
+								default:
+									return <h1>404 page not found</h1>;
+							}
+						};
+
+						return (
+							<div>
+								<nav>
+									&lt;button onClick={() => setCurrentPage('Home')}&gt;Home&lt;/button&gt;
+									&lt;button onClick={() => setCurrentPage('About')}&gt;About&lt;/button&gt;
+									&lt;button onClick={() => setCurrentPage('Projects')}&gt;Projects&lt;/button&gt;
+									&lt;button onClick={() => setCurrentPage('Contact')}&gt;Contact&lt;/button&gt;
+								</nav>
+								{renderPage()}
+							</div>
+						);
+					}; 
+					</code></pre>
+				</section>
+				<section>
+					<h3>A portfolio application</h3>
+					<p>Limitations of manual navigation:</p>
+					<ul>
+						<li><strong>No URLs for pages</strong>: The application does not use unique URLs for each page, making it impossible to bookmark or share links.</li>
+						<li><strong>Poor user experience</strong>: Refreshing the browser resets the app to the default state (Home page).</li>
+						<li><strong>Manual management</strong>: Adding new pages requires updating the renderPage function and navigation bar manually.</li>
+						<li><strong>SEO issues</strong>: Search engines cannot crawl individual pages due to the lack of URLs.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>React Router is the de-facto standard for handling routing in React applications. It allows developers to define routes,
+					navigate between views, and manage URL parameters efficiently. With its robust features and integration capabilities,
+					React Router is essential for building modern single-page applications (SPA).</p>
+				</section>
+				<section>
+					<h3>Single-page applications (SPA)</h3>
+					<p>A single-page application (SPA) is a web application that dynamically loads and updates content on a single HTML page.
+					Instead of fetching a new HTML file for each route, SPAs render content dynamically based on the URL. This improves
+					performance and creates a smoother user experience.</p>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+					const Home = () => <h1>Welcome to my portfolio</h1>;
+					const About = () => <h1>About me</h1>;
+					const Projects = () => <h1>My projects</h1>;
+					const Contact = () => <h1>Contact me</h1>;
+
+					const App = () => (
+						&lt;Router&gt;
+							<nav>
+								&lt;Link to="/" className="link"&gt;Home&lt;/Link&gt;
+								&lt;Link to="/about" className="link"&gt;About&lt;/Link&gt;
+								&lt;Link to="/projects" className="link"&gt;Projects&lt;/Link&gt;
+								&lt;Link to="/contact" className="link"&gt;Contact&lt;/Link&gt;
+							</nav>
+							&lt;Routes&gt;
+								&lt;Route path="/" element={<Home />} /&gt;
+								&lt;Route path="/about" element={<About />} /&gt;
+								&lt;Route path="/projects" element={<Projects />} /&gt;
+								&lt;Route path="/contact" element={<Contact />} /&gt;
+							&lt;/Routes&gt;
+						&lt;/Router&gt;
+					);
+
+					export default App
+					</code></pre>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<ul>
+						<li><strong>Seamless navigation</strong>: No full-page reloads; transitions between views are smooth and fast.</li>
+						<li><strong>URL-based routing</strong>: Each route has a unique URL, making it easier to bookmark and share links.</li>
+						<li><strong>Dynamic and scalable</strong>: Adding new routes is as simple as defining a new Route component.</li>
+						<li><strong>Improved SEO</strong>: SPAs with React Router can be optimized for SEO using server-side rendering or pre-rendering tools.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<ul>
+						<li>Manual navigation is a quick and straightforward approach for small applications but is not scalable or efficient for larger projects.</li>
+						<li>React Router introduces robust navigation and routing features essential for building modern, scalable, and user-friendly SPAs.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>Routing is a fundamental feature of single-page React applications that emulate multi-page behavior. It enables
+					developers to map specific URLs to components, allowing for dynamic view rendering and smooth, seamless navigation
+					without full-page reloads.</p>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>The <code>Route</code> component is used to map a specific URL path to a React component. The <code>path</code> property specifies the URL, and
+					the <code>element</code> property determines which component to render when the path matches.</p>
+					<p>The <code>Routes</code> component acts as a container for multiple <code>Route</code> definitions, ensuring only one matching route is rendered at
+					a time.</p>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>Add a new route for a <strong>Services</strong> page to the application.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>Create a <code>404</code> page: Add a wildcard route (<code>*</code>) to render a 404 page for undefined paths.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+					import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+					const Home = () => <h1>Welcome to my portfolio</h1>;
+					const About = () => <h1>About me</h1>;
+					const Projects = () => <h1>My projects</h1>;
+					const Contact = () => <h1>Contact me</h1>;
+					const NotFound = () => <h1>404 page not found</h1>;
+
+					const App = () => (
+						&lt;Router&gt;
+							<nav>
+								&lt;Link to="/" className="link"&gt;Home&lt;/Link&gt;
+								&lt;Link to="/about" className="link"&gt;About&lt;/Link&gt;
+								&lt;Link to="/projects" className="link"&gt;Projects&lt;/Link&gt;
+								&lt;Link to="/contact" className="link"&gt;Contact&lt;/Link&gt;
+							</nav>
+							&lt;Routes&gt;
+								&lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+								&lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+								&lt;Route path="/projects" element={&lt;Projects /&gt;} /&gt;
+								&lt;Route path="/contact" element={&lt;Contact /&gt;} /&gt;
+								{/* A wildcard route (*) to catch all undefined paths */}
+								&lt;Route path="*" element={&lt;NotFound /&gt;} /&gt;
+							&lt;/Routes&gt;
+						&lt;/Router&gt;
+					);
+
+					export default App
+					</code></pre>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>In traditional HTML, navigation is handled using &lt;a&gt; tags. However, &lt;a&gt; tags cause the browser to perform a full-page reload, which:</p>
+					<ul>
+						<li>Slows down navigation.</li>
+						<li>Breaks the seamless user experience expected from SPAs.</li>
+						<li>Clears the application state.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>React Router provides components like <code>Link</code> and <code>NavLink</code> to enable smooth, single-page navigation without full-page
+					reloads.</p>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>The <code>Link</code> component is used to navigate between routes in a React application. It replaces traditional &lt;a&gt; tags for
+						internal navigation while maintaining the SPA experience.</p>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>While the <code>Link</code> component is great for basic navigation, it doesn’t provide a way to highlight the currently active
+					route. This is where the <code>NavLink</code> component comes in. It works like <code>Link</code> but includes built-in functionality to detect
+					the active route and apply specific styles or classes.</p>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<ul>
+						<li><strong>Active detection</strong>: The <code>NavLink</code> component automatically detects whether the current URL matches the to path and provides an <code>isActive</code> property.</li>
+						<li><strong>Dynamic styling</strong>: Use the <code>isActive</code> property to apply styles or classes dynamically to the active link.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>Add a <code>Services</code> page to the application and include it in the navigation bar using NavLink. Highlight the active page
+						when navigating.</li>
+						<li>Add a footer to the application with navigation links for Home, About, and Contact. Use <code>Link</code> components for the footer
+						links. The footer should display navigation links similar to the navigation bar.</li>
+						<li>Add custom classes for active links</li>
+					</ul>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>In many real-world applications, URLs often contain dynamic data. For example, a product page URL in an online store
+					might look like <code>/products/123</code>, where <code>123</code> is the product ID that changes for each product available in the store.</p>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>In React applications, such scenarios are handled through dynamic routing by defining routes with parameters. Dynamic
+					routing enables us to define routes with placeholders for parameters, allowing URLs to include dynamic values. React
+					Router supports dynamic routing by using a colon (:) in the route path to represent a parameter. For example:</p>
+					<pre><code>&lt;Route path="/products/:id" element={&lt;ProductDetail /&gt;} /&gt;</code></pre>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>The <code>useParams</code> hook, provided by React Router, allows us to extract parameters from the current URL.</p>
+					<pre><code>const params = useParams();</code></pre>
+					<p>It returns an object containing all the dynamic parameters defined in the route as key-value pairs. For example, if the
+					URL is <code>/products/123</code> and the route is defined as <code>/products/:id</code>, the object returned by <code>useParams()</code> will look like this:</p>
+					<pre><code>{ id: "123" }</code></pre>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>Add a user profile page</li>
+						<li>Create a blog post page</li>
+						<li>Update the products page</li>
+					</ul>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>As applications become more complex and feature-rich, organizing routes in a clear and maintainable way becomes
+					critical. Often, we’ll find that certain sections of an application are logically grouped under a parent route. A great
+					example of this is a "Dashboard" in a web application. Dashboards typically consist of multiple related subsections,
+					such as "Profile", "Settings", and "Notifications", which all fall under the umbrella of the main Dashboard page.</p>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>Instead of defining each of these subsections as standalone routes, nested routes allow us to organize them under a
+					single parent route like <code>/dashboard</code>. This parent-child route structure is useful for applications where some pages or
+					sections have their own sub-pages. With nested routes, we can build scalable, modular applications while maintaining a
+					consistent user experience.
+					</p>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>A <code>404</code> page provides a user-friendly way to inform visitors that the requested page cannot be found. It often includes
+					helpful navigation options, such as links to the Home page or a search feature, guiding users back to valid content.
+					</p>
+					<p>React Router allows us to define a wildcard route (<code>path="*"</code>) to handle any undefined paths in our application. Wildcard
+					routes are typically used to display 404 pages.</p>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>Create a blog post page</li>
+						<li>Update the products page</li>
+					</ul>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>React Router offers the <code>useNavigate</code> hook to handle programmatic navigations. The useNavigate hook provides a function
+					that allows us navigate to any route in our application programmatically, without relying on predefined links.</p>
+					<pre><code class="js" style="word-wrap: break-word;" data-trim>
+						const navigate = useNavigate();
+						navigate('/path', { replace: true });
+					</code></pre>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<p>
+						Redirecting users after completing a form, such as navigating to a dashboard after signup or login, is a common
+						requirement in modern applications. The following code demonstrates a simple signup flow where users enter their email
+						address to proceed. If an email is provided, the user is redirected to the profile page using the <code>useNavigate</code> hook;
+						otherwise, an alert prompts them to enter an email.
+					</p>
+				</section>
+				<section>
+					<h3>React Router</h3>
+					<p>Programmatically navigating to the previous page can improve user experience in scenarios like returning from a details
+					page.</p>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>Add a logout button</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Exercise</h3>
+					<ul>
+						<li>Add product detail page</li>
+					</ul>
+				</section>
 			</div>
 		</div>
 
