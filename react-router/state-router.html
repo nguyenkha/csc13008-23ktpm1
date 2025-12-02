@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>State Router</title>
+  <!-- React and ReactDOM via CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel compiler for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const App = () => {
+      const [currentPage, setCurrentPage] = React.useState('Home');
+
+      const renderPage = () => {
+        switch (currentPage) {
+          case 'Home':
+            return <h1>Welcome to my portfolio</h1>;
+          case 'About':
+            return <h1>About me</h1>;
+          case 'Projects':
+            return <h1>My projects</h1>;
+          case 'Contact':
+            return <h1>Contact me</h1>;
+          default:
+            return <h1>404 page not found</h1>;
+        }
+      };
+
+      return (
+        <div>
+          <nav>
+            <button onClick={() => setCurrentPage('Home')}>Home</button>
+            <button onClick={() => setCurrentPage('About')}>About</button>
+            <button onClick={() => setCurrentPage('Projects')}>Projects</button>
+            <button onClick={() => setCurrentPage('Contact')}>Contact</button>
+          </nav>
+          {renderPage()}
+        </div>
+      );
+    }; 
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  </script>
+</body>
+
+</html>
