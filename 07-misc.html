@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CSC13008-23KTPM1-07-Misc</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1460132164768330" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Web Application Development</h1>
+					<h2>CSC13008-23KTPM1</h2>
+					<h3>Note 07 - Misc</h3>
+					<p><small>Lecturer: <a href="mailto:dnkha@fit.hcmus.edu.vn">Đỗ Nguyên Kha</a></small></p>
+					<p><small>Semester 1/2025-2026 @ FIT-HCMUS</small></p>
+					<p><small><a href="?print-pdf">[Print]</a></small></p>
+				</section>
+				<section>
+					<h3>Content</h3>
+					<ol>
+						<li>Supabase</li>
+						<li>Postgres</li>
+						<li>TablePlus</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Supbase ipv6 issue</h3>
+					<p>Supabase Postgres connections use IPv6 by default. If your network doesn't support IPv6, you may encounter connection
+					issues. For IPv4-only networks, switch the connection to pooler mode. Remember to update both the username and host in
+					your connection string accordingly.</p>
+				</section>
+				<section>
+					<h3>Supbase ipv6 issue</h3>
+					<p><img style="width: 90%;"
+						src="./img/supabase-pooler.png"></p>
+				</section>
+				<section>
+					<h3>Postgres</h3>
+					<p>You can use free Postgres services from <a href="https://supabase.com/">Supabase</a> or <a href="https://aiven.io/pricing?product=pg">Aiven</a> , or self-host via the <a href="https://postgresapp.com/">Postgres.app</a> for Mac or <a href"https://www.postgresql.org/download/macosx/">Homebrew/Ports</a> or other <a href="https://www.postgresql.org/download/windows/">Windows</a> or <a href="https://www.docker.com/products/docker-desktop/">Docker for Desktop</a>...</p>
+				</section>
+				<section>
+					<h3>Postgres.app for Mac</h3>
+					<p>
+						<img style="width: 70%;" src="./img/postgres.app.png">
+						<small>Notes: Default password is <strong>empty</strong> (no password)</small>
+					</p>
+				</section>
+				<section>
+					<h3>Postgres in Docker</h3>
+					<p>
+						<img src="./img/postgres-docker.png">
+						<small>Notes: Default password is <strong>mysecretpassword</strong> (or what you set in the ENV)</small>
+					</p>
+				</section>
+				<section>
+					<h3>Colima</h3>
+					<p>
+						For commercial Docker use without a Docker Desktop license, consider <a href="https://github.com/abiosoft/colima">Colima</a> as a lightweight, open-source alternative.
+					</p>
+				</section>
+				<section>
+					<h3>TablePlus</h3>
+					<p>TablePlus is a native GUI for databases like PostgreSQL, developed by a Vietnamese team and popular among developers and
+					companies like Apple. The free tier limits users to 2 concurrent connections and 2 open tables, yet remains sufficient for everyday personal
+					use. It supports PostgreSQL, MySQL, and SQLite with features like inline editing, syntax highlighting, and secure SSH/TLS
+					connections.</p>
+				</section>
+				<section>
+					<h3>TablePlus</h3>
+					<p>
+						<img style="width: 70%;" src="./img/table-plus.png">
+						<small>Notes: Use <strong>localhost</strong> or <strong>127.0.0.1</strong> to access local Postgres</small>
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
