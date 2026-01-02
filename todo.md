@@ -40,7 +40,7 @@
       "createdAt": "2025-12-29T06:00:00.000Z"
     }
   ],
-  "metadata": {
+  "meta": {
     "page": 1,
     "limit": 5,
     "totalItems": 25,
@@ -360,6 +360,8 @@ INSERT INTO tasks (title, completed, priority, category_id, created_at) VALUES
 
 ## ✅ **Yêu cầu**
 
+Xây dựng ứng dụng đầy đủ front-end và back-end bằng Express + Postgres + React
+
 - [x] **Xác thực**: Sử dụng api key cố định được set trong .env
 - [x] **1 đối tượng chính**: Task (GET ALL/ONE/POST, 5 trường, validation, pagination)
 - [x] **1 đối tượng phụ**: Category (GET ALL)
@@ -368,4 +370,3 @@ INSERT INTO tasks (title, completed, priority, category_id, created_at) VALUES
 - [x] **Dữ liệu mẫu**: SQL 25 records + HTML 5 records demo
 - [x] **Filter**: Category dropdown
 - [x] **Pagination**: Cố định 5 dòng/trang
-s
