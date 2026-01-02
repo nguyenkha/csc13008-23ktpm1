@@ -1,6 +1,6 @@
-# 📝 TODO MANAGEMENT SYSTEM
+# 📝 TODO
 
-## 📋 **Mô hình dữ liệu**
+## 📋 **Cơ sở dữ liệu SQL**
 
 ### **Đối tượng chính: `Task`**
 
@@ -360,11 +360,12 @@ INSERT INTO tasks (title, completed, priority, category_id, created_at) VALUES
 
 ## ✅ **Yêu cầu**
 
+- [x] **Xác thực**: Sử dụng api key cố định được set trong .env
 - [x] **1 đối tượng chính**: Task (GET ALL/ONE/POST, 5 trường, validation, pagination)
 - [x] **1 đối tượng phụ**: Category (GET ALL)
 - [x] **HTML Tailwind**: 2 trang hyperlink navigation
 - [x] **Validation**: FE + BE
 - [x] **Dữ liệu mẫu**: SQL 25 records + HTML 5 records demo
 - [x] **Filter**: Category dropdown
-- [x] **Pagination**: Page 1/5 demo
+- [x] **Pagination**: Cố định 5 dòng/trang
 s
