@@ -43,8 +43,7 @@
   "meta": {
     "page": 1,
     "limit": 5,
-    "totalItems": 25,
-    "totalPages": 5
+    "totalItems": 25
   }
 }
 ```
