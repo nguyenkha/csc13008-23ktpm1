@@ -118,12 +118,9 @@ GET /api/categories
 ## 🗄️ **SQL Schema + 25 Records**
 
 ```sql
-CREATE DATABASE todo_system;
-USE todo_system;
-
--- Categories
+-- Create categories table
 CREATE TABLE categories (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -133,20 +130,24 @@ INSERT INTO categories (name) VALUES
 ('🏠 Personal'), 
 ('🚨 Urgent');
 
--- Tasks (MAIN)
+-- Create enum type for priority
+CREATE TYPE priority_level AS ENUM ('low', 'medium', 'high');
+
+-- Create tasks table
 CREATE TABLE tasks (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     title VARCHAR(50) NOT NULL,
     completed BOOLEAN DEFAULT FALSE,
-    priority ENUM('low', 'medium', 'high') NOT NULL,
-    category_id INT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (category_id) REFERENCES categories(id),
-    INDEX idx_category (category_id),
-    INDEX idx_priority (priority)
+    priority priority_level NOT NULL,
+    category_id INT NOT NULL REFERENCES categories(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 25 Sample Tasks
+-- Create indexes
+CREATE INDEX idx_category ON tasks (category_id);
+CREATE INDEX idx_priority ON tasks (priority);
+
+-- Insert sample tasks
 INSERT INTO tasks (title, completed, priority, category_id, created_at) VALUES
 -- Work (10 tasks)
 ('Fix login bug trên trang admin', FALSE, 'high', 1, '2025-12-29 10:30:00'),
@@ -160,7 +161,7 @@ INSERT INTO tasks (title, completed, priority, category_id, created_at) VALUES
 ('Setup CI/CD pipeline', FALSE, 'high', 1, '2025-12-27 12:15:00'),
 ('Update React dependencies', TRUE, 'medium', 1, '2025-12-26 16:20:00'),
 
--- Personal (8 tasks)
+-- Personal (6 tasks)
 ('Mua sữa cho con trước 8h tối', FALSE, 'high', 2, '2025-12-29 09:00:00'),
 ('Gọi bác sĩ kiểm tra sức khỏe', TRUE, 'medium', 2, '2025-12-28 11:30:00'),
 ('Rửa xe máy cuối tuần', FALSE, 'low', 2, '2025-12-27 18:00:00'),
@@ -168,7 +169,7 @@ INSERT INTO tasks (title, completed, priority, category_id, created_at) VALUES
 ('Gym workout 1 hour', FALSE, 'medium', 2, '2025-12-28 19:00:00'),
 ('Grocery shopping - rice & fish', TRUE, 'low', 2, '2025-12-27 17:30:00'),
 
--- Urgent (7 tasks)
+-- Urgent (3 tasks)
 ('Fix critical bug payment gateway', FALSE, 'high', 3, '2025-12-29 05:30:00'),
 ('Customer VIP gọi hỗ trợ ngay', FALSE, 'high', 3, '2025-12-29 06:15:00'),
 ('Server down - restart immediately', TRUE, 'high', 3, '2025-12-28 02:15:00');
