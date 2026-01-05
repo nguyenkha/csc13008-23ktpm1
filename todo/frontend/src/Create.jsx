@@ -10,6 +10,7 @@ export default function Create() {
   const api = useContext(ApiContext);
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
+  const [serverError, setServerError] = useState({});
 
   // Zod schema for validation
   const schema = z.object({
@@ -51,6 +52,7 @@ export default function Create() {
 
   const onSubmit = (data) => {
     console.log(data);
+    setServerError({});
     // Submit data to API
     fetch(`${api.url}/tasks`, {
       // Must use POST to submit data
@@ -73,7 +75,7 @@ export default function Create() {
         console.log('Created task successfully!', await result.json());
         navigate('/', { replace: true });
       } else {
-        alert('Something went wrong! Check the console!');
+        setServerError(await result.json());
         console.error(result);
       }
     });
@@ -128,8 +130,14 @@ export default function Create() {
             </select>
             {errors.categoryId && (<p className="mt-1 text-sm text-red-600">{errors.categoryId.message}</p>)}
           </div>
+          {serverError.message && (<p className="mt-1 text-sm text-red-600">
+            <strong>{serverError.message}</strong>
+            {serverError.errors && serverError.errors.length > 0 && (<ul>
+              {serverError.errors.map((e, i) => <li key={i}>- "{e.field}": {e.message}</li>)}
+            </ul>)}
+          </p>)}
           <button
-            type="submit" 
+            type="submit"
             className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 focus:ring-2 disabled:opacity-50"
           >
             ✅ Tạo Task mới
