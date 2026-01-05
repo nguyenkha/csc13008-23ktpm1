@@ -22,7 +22,7 @@ Quay phim màn hình **liên tục** (độ dài không quá 10 phút) và **tr�
 - Yêu cầu 2 (2.0) **2 đối tượng phụ**: Customer + Category (GET ALL - 1 điểm/action), gửi request với Postman hoặc REST client khác
 - Yêu cầu 3 (1.0) **Chuyển trang**: Bấm chuyển trang qua lại bằng React Router Link
 - Yêu cầu 4 (1.0) **Hiển thị trang danh sách**: Tải thông tin từ back-end, lọc theo Category *hoặc/và* Customer, nếu tiêu chỉ nào không được chọn (mặc định là tất cả) thì không lọc tiêu chí đó
-- Yêu cầu 5 (1.0) **Phân trang danh sách**: Hiển thị thông tin trang hiện tại, nút chọn trang bất kỳ, nút trang trước, trang sau
+- Yêu cầu 5 (1.0) **Phân trang danh sách**: Hiển thị thông tin trang hiện tại, nút chọn trang bất kỳ, nút trang trước, trang sau. Mặc định 5 ticket/trang.
 - Yêu cầu 6 (1.0) **Form tạo Ticket**: Nhập và validate thông tin Ticket
 - Yêu cầu 7 (1.0) **Gửi Ticket thành công**: Tải thông tin lên back-end, xhuyển sang trang danh sách, chọn trang có Ticket mới tạo và mở CSDL kiểm tra dữ liệu mới
 - Đọc MSSV, tổng điểm tự đánh giá, tự nhận xét và kết thúc video.
