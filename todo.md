@@ -53,12 +53,14 @@
 
 ```json
 {
-  "id": 1,
-  "title": "Fix login bug",
-  "completed": false,
-  "priority": "high",
-  "categoryId": 1,
-  "createdAt": "2025-12-29T06:00:00.000Z"
+  "data": {
+    "id": 1,
+    "title": "Fix login bug",
+    "completed": false,
+    "priority": "high",
+    "categoryId": 1,
+    "createdAt": "2025-12-29T06:00:00.000Z"
+  }
 }
 ```
 
@@ -79,12 +81,14 @@
 
 ```json
 {
-  "id": 26,
-  "title": "Design database schema",
-  "completed": false,
-  "priority": "medium",
-  "categoryId": 1,
-  "createdAt": "2025-12-29T10:30:00.000Z"
+  "data": {
+    "id": 26,
+    "title": "Design database schema",
+    "completed": false,
+    "priority": "medium",
+    "categoryId": 1,
+    "createdAt": "2025-12-29T10:30:00.000Z"
+  }
 }
 ```
 
@@ -107,11 +111,13 @@ GET /api/categories
 ```
 
 ```json
-[
-  {"id": 1, "name": "💼 Work"},
-  {"id": 2, "name": "🏠 Personal"},
-  {"id": 3, "name": "🚨 Urgent"}
-]
+{
+  "data": [
+    {"id": 1, "name": "💼 Work"},
+    {"id": 2, "name": "🏠 Personal"},
+    {"id": 3, "name": "🚨 Urgent"}
+  ]
+}
 ```
 
 ## 🗄️ **SQL Schema + 25 Records**
