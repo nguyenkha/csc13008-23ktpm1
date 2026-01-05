@@ -17,7 +17,9 @@ export default function restResponse(req, res, next) {
   };
 
   res.created = (data) => {
-    res.status(201).json(data);
+    res.status(201).json({
+      data,
+    });
   };
 
   res.ok = (data, totalItems) => {
