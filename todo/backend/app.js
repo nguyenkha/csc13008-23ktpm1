@@ -35,7 +35,7 @@ app.use(auth);
 
 // Task
 app.use('/tasks', taskRoute);
-// Ward
+// Category
 app.use('/categories', categoryRoute);
 
 // Error handling
